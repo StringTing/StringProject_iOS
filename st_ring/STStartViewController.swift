@@ -15,8 +15,9 @@ import FacebookCore
 class STStartViewController: UIViewController {
     @IBOutlet weak var StartLogoImg: UIImageView!
     @IBOutlet weak var agreeLabel: UILabel!
-    @IBOutlet weak var emailLogin: UIButton!
-    @IBOutlet weak var join: UIButton!
+    @IBOutlet weak var emailJoin: UIButton!
+    @IBOutlet weak var LoginBtn: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +31,7 @@ class STStartViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func FBLoginBtn(_ sender: Any) {
+    @IBAction func FBJoing(_ sender: Any) {
         let loginManager = LoginManager()
         
         loginManager.logIn([ .publicProfile ], viewController: self) { loginResult in
@@ -42,6 +43,33 @@ class STStartViewController: UIViewController {
             case .success( _, _, _):
                 print("Logged in!")
             }
+        }
+    }
+    
+    @IBAction func KakaoJoin(_ sender: Any) {
+        let session = KOSession.shared()
+        
+        if let s = session {
+            if s.isOpen(){
+                s.close()
+            }
+            s.open(completionHandler: { (error) in
+                if error == nil {
+                    print("No error")
+                    
+                    if s.isOpen(){
+                        print("Success")
+                    }else {
+                        print("Faild")
+                    }
+                }
+                else {
+                    print("Error login : \(error!)")
+                }
+            })
+        }
+        else {
+            print("Something wrong")
         }
     }
     
