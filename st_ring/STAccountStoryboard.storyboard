@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Slack-512.png" translatesAutoresizingMaskIntoConstraints="NO" id="lZi-lX-Qt4">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="slack-512.png" translatesAutoresizingMaskIntoConstraints="NO" id="lZi-lX-Qt4">
                                 <rect key="frame" x="112" y="160" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -92,6 +92,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Slack-512.png" width="1618" height="1574"/>
+        <image name="slack-512.png" width="512" height="512"/>
     </resources>
 </document>
