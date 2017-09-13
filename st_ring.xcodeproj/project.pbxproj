@@ -22,6 +22,7 @@
 		E1BD4EB01F54163D00760128 /* st_ringUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BD4EAF1F54163D00760128 /* st_ringUITests.swift */; };
 		E1BD4EC11F54176300760128 /* STAccountStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1BD4EC01F54176300760128 /* STAccountStoryboard.storyboard */; };
 		E1BD4EC41F5417B100760128 /* STStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BD4EC21F5417B100760128 /* STStartViewController.swift */; };
+		E1C58D061F69308B008F1D6A /* STLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C58D041F69308B008F1D6A /* STLoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		E1BD4EB11F54163D00760128 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E1BD4EC01F54176300760128 /* STAccountStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = STAccountStoryboard.storyboard; sourceTree = "<group>"; };
 		E1BD4EC21F5417B100760128 /* STStartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STStartViewController.swift; sourceTree = "<group>"; };
+		E1C58D041F69308B008F1D6A /* STLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STLoginViewController.swift; sourceTree = "<group>"; };
 		ED2E55FC33964C5FC65F776C /* Pods-st_ring.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-st_ring.release.xcconfig"; path = "Pods/Target Support Files/Pods-st_ring/Pods-st_ring.release.xcconfig"; sourceTree = "<group>"; };
 		F89F14567F01D719431ACC43 /* Pods_st_ringTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_st_ringTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC2DE5ED6EBF9C61DA182CE9 /* Pods-st_ringTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-st_ringTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-st_ringTests/Pods-st_ringTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 			children = (
 				E1BD4EC01F54176300760128 /* STAccountStoryboard.storyboard */,
 				E1BD4EC21F5417B100760128 /* STStartViewController.swift */,
+				E1C58D041F69308B008F1D6A /* STLoginViewController.swift */,
 			);
 			name = Account;
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 				E1BD4E8F1F54163D00760128 /* ViewController.swift in Sources */,
 				E1BD4E951F54163D00760128 /* st_ring.xcdatamodeld in Sources */,
 				E1BD4EC41F5417B100760128 /* STStartViewController.swift in Sources */,
+				E1C58D061F69308B008F1D6A /* STLoginViewController.swift in Sources */,
 				E1BD4E8D1F54163D00760128 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
