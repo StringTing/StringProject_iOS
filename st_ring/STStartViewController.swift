@@ -9,34 +9,33 @@
 import UIKit
 import FacebookLogin
 import FacebookCore
+import TTTAttributedLabel
 
 
 
-class STStartViewController: UIViewController {
+class STStartViewController: UIViewController,TTTAttributedLabelDelegate {
     @IBOutlet weak var StartLogoImg: UIImageView!
-    @IBOutlet weak var agreeLabel: UILabel!
     @IBOutlet weak var emailJoin: UIButton!
     @IBOutlet weak var LoginBtn: UIButton!
+    @IBOutlet weak var agreeLabel: TTTAttributedLabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         let range1 = NSMakeRange(21, 5)
         let range2 = NSMakeRange(29, 8)
-        let attribute : [String:Any] = [
-            NSUnderlineStyleAttributeName : NSUnderlineStyle.styleThick.rawValue,
-            NSUnderlineColorAttributeName : UIColor.black,
-            NSLinkAttributeName : NSURL(string: "http://www.google.com")!
-        ]
-        
         let agreeLabelText = "가입하기 또는 로그인 버튼을 누르면 \n이용 약관 및 개인정보취급방침에 동의하신 것이 됩니다."
-        let attributedText = NSMutableAttributedString(string: agreeLabelText, attributes: nil)
-        //let tapGesture = UITapGestureRecognizer(target: self, action: Selector("agreeLinkTap"))
-        attributedText.addAttributes(attribute, range: range1)
-        attributedText.addAttributes(attribute, range: range2)
         
+        agreeLabel.text = agreeLabelText
         agreeLabel.textAlignment = .center
-        agreeLabel.attributedText = attributedText
+        agreeLabel.delegate = self
+        agreeLabel.linkAttributes = [
+            NSForegroundColorAttributeName : UIColor.black,
+            NSUnderlineStyleAttributeName : NSUnderlineStyle.styleThick.rawValue,
+            NSUnderlineColorAttributeName : UIColor.black
+        ]
+        agreeLabel.addLink(to: NSURL(string: "https://s.zigbang.com/agree/user-agreement-last.html") as URL!, with: range1)
+        agreeLabel.addLink(to: NSURL(string: "https://s.zigbang.com/agree/user-privacy-last.html") as URL!, with: range2)
     }
 
     override func didReceiveMemoryWarning() {
@@ -86,8 +85,12 @@ class STStartViewController: UIViewController {
         }
     }
     
-    func agreeLinkTap(sender: UITapGestureRecognizer){
-        
+    public func attributedLabel(_ label: TTTAttributedLabel!, didSelectLinkWith url: URL!){
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
     }
     /*
     // MARK: - Navigation

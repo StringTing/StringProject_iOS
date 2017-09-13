@@ -17,10 +17,12 @@ PODS:
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.25.0):
     - FBSDKCoreKit
+  - TTTAttributedLabel (2.0.0)
 
 DEPENDENCIES:
   - FacebookCore
   - FacebookLogin
+  - TTTAttributedLabel
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
@@ -28,7 +30,8 @@ SPEC CHECKSUMS:
   FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
   FBSDKCoreKit: 53e3f4bfb64e80c5f229dd30ae33ff57fbbbd2d1
   FBSDKLoginKit: f628c09684dae9c17f071cf90b014e886f5093ea
+  TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
-PODFILE CHECKSUM: 69ca20f7ec4c1e9b6a7d1e3f95b4913111766ef9
+PODFILE CHECKSUM: 43689497bf86ace01877718d3e50c0a084487028
 
 COCOAPODS: 1.3.0

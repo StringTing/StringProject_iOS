@@ -10,5 +10,6 @@
 #define Bridging_Header_h
 
 #import <KakaoOpenSDK/KakaoOpenSDK.h>
+#import <TTTAttributedLabel/TTTAttributedLabel.h>
 
 #endif /* Bridging_Header_h */
