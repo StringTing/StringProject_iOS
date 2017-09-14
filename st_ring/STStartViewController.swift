@@ -16,7 +16,6 @@ import TTTAttributedLabel
 class STStartViewController: UIViewController,TTTAttributedLabelDelegate {
     @IBOutlet weak var StartLogoImg: UIImageView!
     @IBOutlet weak var emailJoin: UIButton!
-    @IBOutlet weak var LoginBtn: UIButton!
     @IBOutlet weak var agreeLabel: TTTAttributedLabel!
     
     override func viewDidLoad() {
@@ -92,13 +91,10 @@ class STStartViewController: UIViewController,TTTAttributedLabelDelegate {
             UIApplication.shared.openURL(url)
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func EmailJoin(_ sender: Any) {
+        let vc = self.storyboard!.instantiateViewController(withIdentifier: "STEmailJoinViewController") as! STEmailJoinViewController
+        
+        self.present(vc, animated: true, completion: nil)
     }
-    */
+    
 }
