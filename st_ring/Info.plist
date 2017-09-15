@@ -43,6 +43,8 @@
 	<string>String</string>
 	<key>KAKA0_APP_KEY</key>
 	<string>b7266d45fe00d1b0309ca38ab00be0d4</string>
+	<key>KAKAO_APP_KEY</key>
+	<string>b7266d45fe00d1b0309ca38ab00be0d4</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>kakaob7266d45fe00d1b0309ca38ab00be0d4</string>
@@ -118,10 +120,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-    <key>KAKAO_APP_KEY</key>
-    <string>b7266d45fe00d1b0309ca38ab00be0d4</string>
 </dict>
 </plist>

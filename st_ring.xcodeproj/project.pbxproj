@@ -697,6 +697,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = st_ring/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				NEW_SETTING = "";
 				OTHER_LDFLAGS = (
@@ -733,6 +734,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = st_ring/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				NEW_SETTING = "";
 				OTHER_LDFLAGS = (
