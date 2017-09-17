@@ -1,27 +1,24 @@
 //
-//  STEmailJoinViewController.swift
+//  STEmailLoginViewController.swift
 //  st_ring
 //
-//  Created by EuiSuk_Lee on 2017. 9. 14..
+//  Created by euisuk_lee on 2017. 9. 17..
 //  Copyright © 2017년 EuiSuk_Lee. All rights reserved.
 //
 
 import UIKit
 
-class STEmailJoinViewController: UIViewController, UITextFieldDelegate{
+class STEmailLoginViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var EmailText: UITextField!
     @IBOutlet weak var PasswordText: UITextField!
-    @IBOutlet weak var PWCheckText: UITextField!
-    @IBOutlet weak var JoinBtn: UIButton!
     @IBOutlet weak var EmailErrorLabel: UILabel!
-    @IBOutlet weak var PWErrorLabel: UILabel!
+    @IBOutlet weak var PasswordErrorLabel: UILabel!
+    @IBOutlet weak var LoginBtn: UIButton!
     
     var emailCK : Bool!
     var passwordCK : Bool!
-    var PWequalCK : Bool!
     
-    var joinBtnYLocation : CGFloat!
-    
+    var LoginBtnYLocation : CGFloat!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,13 +29,12 @@ class STEmailJoinViewController: UIViewController, UITextFieldDelegate{
         
         EmailText.delegate = self
         PasswordText.delegate = self
-        PWCheckText.delegate = self
         
-        self.JoinBtn.isEnabled = false
-        self.JoinBtn.backgroundColor = .lightGray
+        LoginBtn.isEnabled = false
+        LoginBtn.backgroundColor? = UIColor.lightGray
         
-        self.joinBtnYLocation = self.JoinBtn.frame.origin.y
-        
+        self.LoginBtnYLocation = self.LoginBtn.frame.origin.y
+
         // Do any additional setup after loading the view.
     }
 
@@ -55,25 +51,33 @@ class STEmailJoinViewController: UIViewController, UITextFieldDelegate{
         self.view.endEditing(true)
         self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+    @IBAction func LoginBtn(_ sender: Any) {
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if(textField == self.EmailText && self.EmailText.text! != ""){
             isValidEmail(EmailStr: EmailText.text!)
             self.PasswordText.becomeFirstResponder()
         }else if(textField == self.PasswordText && self.PasswordText.text! != ""){
-            isValidPassword(Password: PasswordText.text!, CKPassword: PWCheckText.text!)
-            self.PWCheckText.becomeFirstResponder()
-        }else if(textField == self.PWCheckText && self.PWCheckText.text! != ""){
-            isValidPassword(Password: PasswordText.text!, CKPassword: PWCheckText.text!)
+            isValidPassword(Password:PasswordText.text!)
         }
         
-        if(EmailText.text! != "" && PasswordText.text! != "" && PWCheckText.text! != ""){
-            if(emailCK! == true && passwordCK! == true && PWequalCK! ==  true){
-                self.JoinBtn.isEnabled = true
-                self.JoinBtn.backgroundColor = UIColor.black
+        if(EmailText.text! != "" && PasswordText.text! != ""){
+            if(emailCK! == true && passwordCK! == true){
+                LoginBtn.isEnabled = true
+                LoginBtn.backgroundColor? = UIColor.black
             } else {
-                self.JoinBtn.isEnabled = false
-                self.JoinBtn.backgroundColor = UIColor.lightGray
+                LoginBtn.isEnabled = false
+                LoginBtn.backgroundColor? = UIColor.lightGray
             }
         }
         
@@ -85,36 +89,32 @@ class STEmailJoinViewController: UIViewController, UITextFieldDelegate{
             isValidEmail(EmailStr: EmailText.text!)
             self.PasswordText.becomeFirstResponder()
         }else if(textField == self.PasswordText && self.PasswordText.text! != ""){
-            isValidPassword(Password: PasswordText.text!, CKPassword: PWCheckText.text!)
-            
-            self.PWCheckText.becomeFirstResponder()
-        }else if(textField == self.PWCheckText && self.PWCheckText.text! != ""){
-            isValidPassword(Password: PasswordText.text!, CKPassword: PWCheckText.text!)
+            isValidPassword(Password:PasswordText.text!)
         }
         
-        if(EmailText.text! != "" && PasswordText.text! != "" && PWCheckText.text! != ""){
-            if(emailCK! == true && passwordCK! == true && PWequalCK! ==  true){
-                self.JoinBtn.isEnabled = true
-                self.JoinBtn.backgroundColor = UIColor.black
+        if(EmailText.text! != "" && PasswordText.text! != ""){
+            if(emailCK! == true && passwordCK! == true){
+                LoginBtn.isEnabled = true
+                LoginBtn.backgroundColor? = UIColor.black
             } else {
-                self.JoinBtn.isEnabled = false
-                self.JoinBtn.backgroundColor = UIColor.lightGray
+                LoginBtn.isEnabled = false
+                LoginBtn.backgroundColor? = UIColor.lightGray
             }
         }
     }
     
     func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.JoinBtn.frame.origin.y == self.joinBtnYLocation{
-                self.JoinBtn.frame.origin.y -= keyboardSize.height
+            if self.LoginBtn.frame.origin.y == self.LoginBtnYLocation{
+                self.LoginBtn.frame.origin.y -= keyboardSize.height
             }
         }
     }
     
     func keyboardWillHide(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.JoinBtn.frame.origin.y != self.joinBtnYLocation{
-                self.JoinBtn.frame.origin.y += keyboardSize.height
+            if self.LoginBtn.frame.origin.y != self.LoginBtnYLocation{
+                self.LoginBtn.frame.origin.y += keyboardSize.height
             }
         }
     }
@@ -132,24 +132,7 @@ class STEmailJoinViewController: UIViewController, UITextFieldDelegate{
         }
     }
     
-    func isValidPassword(Password : String, CKPassword : String) -> Void {
-        let passwordRegEx = "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,}"
-        let passwordTest = NSPredicate(format:"SELF MATCHES %@", passwordRegEx)
-        
-        if (passwordTest.evaluate(with: Password) == false) {
-            PWErrorLabel.text! = "비밀번호는 영대/소문자, 숫자, 특수기호 혼합 8자리이상을 입력해주세요."
-            self.passwordCK = false
-        } else if (CKPassword != "" && Password != CKPassword){
-            self.PWequalCK = false
-            PWErrorLabel.text! = "비밀번호가 일치하지 않습니다."
-        } else {
-            PWErrorLabel.text! = ""
-            self.passwordCK = true
-            self.PWequalCK = true
-        }
+    func isValidPassword(Password:String){
+        self.passwordCK = true
     }
-    
-    @IBAction func JoinAction(_ sender: Any) {
-    }
-
 }

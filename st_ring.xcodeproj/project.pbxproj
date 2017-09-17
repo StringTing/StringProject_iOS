@@ -10,6 +10,8 @@
 		2DA2F8A45FBE90D205949914 /* Pods_st_ring.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 026E0C623507ADC6A9BA59CF /* Pods_st_ring.framework */; };
 		919D75E49C0C75D286D60EE7 /* Pods_st_ringUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D7A0FDFE67874E5FF119D2 /* Pods_st_ringUITests.framework */; };
 		9A3C71BCD67DD2485CF70041 /* Pods_st_ringTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F89F14567F01D719431ACC43 /* Pods_st_ringTests.framework */; };
+		E11841491F6E51FE00D3A50A /* STLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11841481F6E51FE00D3A50A /* STLoginViewController.swift */; };
+		E118414B1F6E66A800D3A50A /* STEmailLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E118414A1F6E66A800D3A50A /* STEmailLoginViewController.swift */; };
 		E11AAFF11F67816D008F0A3C /* slack-512.png in Resources */ = {isa = PBXBuildFile; fileRef = E11AAFF01F67816D008F0A3C /* slack-512.png */; };
 		E1A81EC51F56AC730036FE01 /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1A81EC41F56AC730036FE01 /* KakaoOpenSDK.framework */; };
 		E1BD4E8D1F54163D00760128 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BD4E8C1F54163D00760128 /* AppDelegate.swift */; };
@@ -49,6 +51,8 @@
 		A1B44A29D13EA5A5EB5C9006 /* Pods-st_ringTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-st_ringTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-st_ringTests/Pods-st_ringTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B7C5809DE176B1129379C1B8 /* Pods-st_ringUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-st_ringUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-st_ringUITests/Pods-st_ringUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C2D7A0FDFE67874E5FF119D2 /* Pods_st_ringUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_st_ringUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E11841481F6E51FE00D3A50A /* STLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STLoginViewController.swift; sourceTree = "<group>"; };
+		E118414A1F6E66A800D3A50A /* STEmailLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STEmailLoginViewController.swift; sourceTree = "<group>"; };
 		E11AAFF01F67816D008F0A3C /* slack-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slack-512.png"; sourceTree = "<group>"; };
 		E11FC8DB1F56A38E00961E39 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		E1A81EC41F56AC730036FE01 /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoOpenSDK.framework; sourceTree = "<group>"; };
@@ -204,6 +208,8 @@
 				E1BD4EC01F54176300760128 /* STAccountStoryboard.storyboard */,
 				E1BD4EC21F5417B100760128 /* STStartViewController.swift */,
 				E1FE00071F6ABB530099ED41 /* STEmailJoinViewController.swift */,
+				E11841481F6E51FE00D3A50A /* STLoginViewController.swift */,
+				E118414A1F6E66A800D3A50A /* STEmailLoginViewController.swift */,
 			);
 			name = Account;
 			sourceTree = "<group>";
@@ -535,8 +541,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1BD4E8F1F54163D00760128 /* ViewController.swift in Sources */,
+				E118414B1F6E66A800D3A50A /* STEmailLoginViewController.swift in Sources */,
 				E1BD4E951F54163D00760128 /* st_ring.xcdatamodeld in Sources */,
 				E1BD4EC41F5417B100760128 /* STStartViewController.swift in Sources */,
+				E11841491F6E51FE00D3A50A /* STLoginViewController.swift in Sources */,
 				E1BD4E8D1F54163D00760128 /* AppDelegate.swift in Sources */,
 				E1FE00081F6ABB530099ED41 /* STEmailJoinViewController.swift in Sources */,
 			);
