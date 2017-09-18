@@ -51,11 +51,6 @@ class STEmailJoinViewController: UIViewController, UITextFieldDelegate{
         self.EmailText.becomeFirstResponder()
     }
     
-    @IBAction func dismiss(_ sender: Any) {
-        self.view.endEditing(true)
-        self.presentingViewController?.dismiss(animated: true, completion: nil)
-    }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if(textField == self.EmailText && self.EmailText.text! != ""){
             isValidEmail(EmailStr: EmailText.text!)
@@ -150,6 +145,12 @@ class STEmailJoinViewController: UIViewController, UITextFieldDelegate{
     }
     
     @IBAction func JoinAction(_ sender: Any) {
+        guard let STSMSConfirm = storyboard?.instantiateViewController(withIdentifier: "STSMSConfrimViewController") else {
+            return
+        }
+        
+        self.navigationController?.pushViewController(STSMSConfirm, animated: true)
+        print("run")
     }
 
 }

@@ -92,8 +92,11 @@ class STStartViewController: UIViewController,TTTAttributedLabelDelegate {
         }
     }
     @IBAction func EmailJoin(_ sender: Any) {
-        let vc = self.storyboard!.instantiateViewController(withIdentifier: "STEmailJoinViewController") as! STEmailJoinViewController
-        self.present(vc, animated: true, completion: nil)
+        guard let EmailJoin = storyboard?.instantiateViewController(withIdentifier: "STJoinNavigationController") else {
+            return
+        }
+        
+        self.present(EmailJoin, animated: true, completion: nil)
     }
     
 }

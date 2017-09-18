@@ -75,7 +75,6 @@
                                 <rect key="frame" x="112.5" y="158" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="Kwq-Ve-Oki"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="SOD-rD-xjo"/>
                                     <constraint firstAttribute="height" constant="150" id="yPf-1T-PnI"/>
                                 </constraints>
                             </imageView>
@@ -96,7 +95,7 @@
             </objects>
             <point key="canvasLocation" x="-175" y="-514"/>
         </scene>
-        <!--Email Join View Controller-->
+        <!--회원가입-->
         <scene sceneID="HtQ-FF-RVp">
             <objects>
                 <viewController storyboardIdentifier="STEmailJoinViewController" id="3Ft-Ps-emB" customClass="STEmailJoinViewController" customModule="st_ring" customModuleProvider="target" sceneMemberID="viewController">
@@ -147,7 +146,7 @@
                                 <rect key="frame" x="0.0" y="626" width="375" height="41"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="회원가입">
+                                <state key="normal" title="다음">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -158,13 +157,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="회원가입" id="FA6-L0-zlA">
-                                        <barButtonItem key="leftBarButtonItem" title="&lt;" id="APQ-PG-VQZ">
-                                            <connections>
-                                                <action selector="dismiss:" destination="3Ft-Ps-emB" id="A9u-5j-M77"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
+                                    <navigationItem title="회원가입" id="FA6-L0-zlA"/>
                                 </items>
                             </navigationBar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y18-Jn-MPB">
@@ -191,7 +184,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="jhj-Un-h85"/>
+                    <navigationItem key="navigationItem" title="회원가입" id="jhj-Un-h85"/>
                     <connections>
                         <outlet property="EmailErrorLabel" destination="7Oa-k8-Bv6" id="NkB-aR-Y2g"/>
                         <outlet property="EmailText" destination="Lhg-28-QSA" id="J0d-hU-SSO"/>
@@ -203,7 +196,78 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mqk-84-Ll3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="616.79999999999995" y="-709.29535232383819"/>
+            <point key="canvasLocation" x="1556" y="-514.09295352323841"/>
+        </scene>
+        <!--SMS 인증-->
+        <scene sceneID="ag6-fc-wKu">
+            <objects>
+                <viewController storyboardIdentifier="STSMSConfrimViewController" id="1Q3-6L-aiu" customClass="STSMSConfrimViewController" customModule="st_ring" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iMW-Jr-McE"/>
+                        <viewControllerLayoutGuide type="bottom" id="Q5B-UN-tn4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GVp-46-f1y">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cqc-Pi-ina">
+                                <rect key="frame" x="0.0" y="626" width="375" height="41"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <bool key="isElement" value="NO"/>
+                                </accessibility>
+                                <state key="normal" title="다음">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="JoinAction:" destination="3Ft-Ps-emB" eventType="touchUpInside" id="jml-0I-ecI"/>
+                                    <action selector="NextBtn:" destination="1Q3-6L-aiu" eventType="touchUpInside" id="ddP-J4-JIj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="SMS 인증" id="KtI-q8-bT0"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wcJ-kv-mSW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2336.8000000000002" y="-514.09295352323841"/>
+        </scene>
+        <!--기본정보입력-->
+        <scene sceneID="CyS-C0-H0u">
+            <objects>
+                <viewController storyboardIdentifier="STBasicInfoViewController" title="기본정보입력" id="tVR-e7-pUL" customClass="STBasicInfoViewController" customModule="st_ring" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Sta-JN-1O5"/>
+                        <viewControllerLayoutGuide type="bottom" id="yVD-Ou-Htz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5ei-sP-C6C">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YZp-es-Z2B">
+                                <rect key="frame" x="0.0" y="626" width="375" height="41"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <bool key="isElement" value="NO"/>
+                                </accessibility>
+                                <state key="normal" title="다음">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="JoinAction:" destination="3Ft-Ps-emB" eventType="touchUpInside" id="W0x-rg-oyL"/>
+                                    <action selector="NextBtn:" destination="1Q3-6L-aiu" eventType="touchUpInside" id="vKy-8h-qTj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="507-5J-Ada" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3118" y="-514"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="puD-SK-Bq0">
@@ -364,6 +428,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iPB-xC-gLm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="617" y="163"/>
+        </scene>
+        <!--Join Navigation Controller-->
+        <scene sceneID="aoe-xX-J5y">
+            <objects>
+                <navigationController storyboardIdentifier="STJoinNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="Zq2-Mv-Ifi" customClass="STJoinNavigationController" customModule="st_ring" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="H3X-4h-OZe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3Ft-Ps-emB" kind="relationship" relationship="rootViewController" id="v8E-Dz-tpv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VlY-Pd-gk0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="616.79999999999995" y="-514.09295352323841"/>
         </scene>
     </scenes>
     <resources>
