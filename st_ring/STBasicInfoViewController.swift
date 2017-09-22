@@ -9,10 +9,11 @@
 import UIKit
 
 class STBasicInfoViewController: UIViewController {
+    @IBOutlet weak var ScrollView: UIScrollView!
+    @IBOutlet weak var ContentsView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
