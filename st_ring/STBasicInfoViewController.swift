@@ -64,7 +64,7 @@ class STBasicInfoViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
     var nextBtnYLocation:CGPoint!
     
-    var sex = false
+    var sex = true
     
     
     override func viewDidLoad() {
@@ -97,6 +97,8 @@ class STBasicInfoViewController: UIViewController, UIPickerViewDelegate, UIPicke
         } else {
             gunBarI.removeFromSuperview()
             gunBariLabel.removeFromSuperview()
+            let womenConst1 = NSLayoutConstraint(item: schoolLabel, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: progressImg, attribute:NSLayoutAttribute.top, multiplier: 1, constant: CGFloat(50))
+            self.view.addConstraint(womenConst1)
             bodyTextfield.inputView = WbodyPicker
         }
         
@@ -229,6 +231,11 @@ class STBasicInfoViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        if(textField != schoolTextfield && textField != specialtyTextfield) {
+            let scrollPoint : CGPoint = CGPoint(x : 0, y: textField.frame.origin.y - 200)
+            self.ScrollView.setContentOffset(scrollPoint, animated: true)
+        }
+        
         if (textField == schoolTextfield){
             schoolGuide.isHidden = true
             schoolTextfield.text = schoolArray[0]
