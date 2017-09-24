@@ -15,8 +15,9 @@
 		E103AB8A1F6FF62200E4D496 /* STBasicInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E103AB891F6FF62200E4D496 /* STBasicInfoViewController.swift */; };
 		E11841491F6E51FE00D3A50A /* STLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11841481F6E51FE00D3A50A /* STLoginViewController.swift */; };
 		E118414B1F6E66A800D3A50A /* STEmailLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E118414A1F6E66A800D3A50A /* STEmailLoginViewController.swift */; };
-		E11AAFF11F67816D008F0A3C /* slack-512.png in Resources */ = {isa = PBXBuildFile; fileRef = E11AAFF01F67816D008F0A3C /* slack-512.png */; };
 		E1A81EC51F56AC730036FE01 /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1A81EC41F56AC730036FE01 /* KakaoOpenSDK.framework */; };
+		E1B3C5D31F77E8080029B88D /* selectTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B3C5D21F77E8080029B88D /* selectTextField.swift */; };
+		E1B3C5D51F77F0B60029B88D /* STImgUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B3C5D41F77F0B60029B88D /* STImgUploadViewController.swift */; };
 		E1BD4E8D1F54163D00760128 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BD4E8C1F54163D00760128 /* AppDelegate.swift */; };
 		E1BD4E8F1F54163D00760128 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BD4E8E1F54163D00760128 /* ViewController.swift */; };
 		E1BD4E921F54163D00760128 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1BD4E901F54163D00760128 /* Main.storyboard */; };
@@ -59,9 +60,10 @@
 		E103AB891F6FF62200E4D496 /* STBasicInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STBasicInfoViewController.swift; sourceTree = "<group>"; };
 		E11841481F6E51FE00D3A50A /* STLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STLoginViewController.swift; sourceTree = "<group>"; };
 		E118414A1F6E66A800D3A50A /* STEmailLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STEmailLoginViewController.swift; sourceTree = "<group>"; };
-		E11AAFF01F67816D008F0A3C /* slack-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slack-512.png"; sourceTree = "<group>"; };
 		E11FC8DB1F56A38E00961E39 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		E1A81EC41F56AC730036FE01 /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoOpenSDK.framework; sourceTree = "<group>"; };
+		E1B3C5D21F77E8080029B88D /* selectTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectTextField.swift; sourceTree = "<group>"; };
+		E1B3C5D41F77F0B60029B88D /* STImgUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STImgUploadViewController.swift; sourceTree = "<group>"; };
 		E1BD4E891F54163D00760128 /* st_ring.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = st_ring.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1BD4E8C1F54163D00760128 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1BD4E8E1F54163D00760128 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -136,7 +138,6 @@
 		E19694101F55540300CD889A /* Account */ = {
 			isa = PBXGroup;
 			children = (
-				E11AAFF01F67816D008F0A3C /* slack-512.png */,
 			);
 			name = Account;
 			sourceTree = "<group>";
@@ -227,6 +228,7 @@
 				E118414A1F6E66A800D3A50A /* STEmailLoginViewController.swift */,
 				E103AB831F6FE6CF00E4D496 /* STSMSConfrimViewController.swift */,
 				E103AB871F6FF35A00E4D496 /* STJoinNavigationController.swift */,
+				E1B3C5D41F77F0B60029B88D /* STImgUploadViewController.swift */,
 			);
 			name = Account;
 			sourceTree = "<group>";
@@ -234,6 +236,7 @@
 		E1D7AACB1F69551100346E2C /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				E1B3C5D21F77E8080029B88D /* selectTextField.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -371,7 +374,6 @@
 				E1BD4E9A1F54163D00760128 /* LaunchScreen.storyboard in Resources */,
 				E1BD4E971F54163D00760128 /* Assets.xcassets in Resources */,
 				E1BD4EC11F54176300760128 /* STAccountStoryboard.storyboard in Resources */,
-				E11AAFF11F67816D008F0A3C /* slack-512.png in Resources */,
 				E1BD4E921F54163D00760128 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -566,6 +568,8 @@
 				E103AB841F6FE6CF00E4D496 /* STSMSConfrimViewController.swift in Sources */,
 				E11841491F6E51FE00D3A50A /* STLoginViewController.swift in Sources */,
 				E1BD4E8D1F54163D00760128 /* AppDelegate.swift in Sources */,
+				E1B3C5D31F77E8080029B88D /* selectTextField.swift in Sources */,
+				E1B3C5D51F77F0B60029B88D /* STImgUploadViewController.swift in Sources */,
 				E1FE00081F6ABB530099ED41 /* STEmailJoinViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

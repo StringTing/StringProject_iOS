@@ -34,7 +34,7 @@ class STEmailJoinViewController: UIViewController, UITextFieldDelegate{
         PasswordText.delegate = self
         PWCheckText.delegate = self
         
-        self.JoinBtn.isEnabled = false
+        self.JoinBtn.isEnabled = true
         self.JoinBtn.backgroundColor = .lightGray
         
         self.joinBtnYLocation = self.JoinBtn.frame.origin.y
