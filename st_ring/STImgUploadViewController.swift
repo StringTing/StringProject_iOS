@@ -8,8 +8,9 @@
 
 import UIKit
 
-class STImgUploadViewController: UIViewController {
-
+class STImgUploadViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    @IBOutlet weak var certificationBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
