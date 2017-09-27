@@ -926,6 +926,7 @@ String 심사를 통과하면 더욱 더 믿음가는 회원과 매칭이 됩니
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="NextBtn" destination="oIP-Wx-23q" id="hXm-nb-QPe"/>
                         <outlet property="certificationBtn" destination="Ptf-dl-7io" id="wxx-SJ-8jx"/>
                         <outlet property="certificationImg" destination="BTe-Dw-cnq" id="EbT-5o-6tD"/>
                         <outlet property="certificationLabel" destination="JOq-Wd-5yK" id="A0r-4G-Gwd"/>
@@ -939,6 +940,24 @@ String 심사를 통과하면 더욱 더 믿음가는 회원과 매칭이 됩니
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w5S-Ci-khR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4261.6000000000004" y="-514.09295352323841"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="4jm-BQ-pAd">
+            <objects>
+                <viewController storyboardIdentifier="STQAViewController" id="Z5E-hL-J5v" customClass="STQAViewController" customModule="st_ring" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lwO-4B-1Yk"/>
+                        <viewControllerLayoutGuide type="bottom" id="QAO-L5-EM9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QRm-MA-vQ4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="giQ-QY-NJ4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4996" y="-514"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="puD-SK-Bq0">

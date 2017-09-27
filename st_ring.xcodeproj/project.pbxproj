@@ -16,6 +16,7 @@
 		E11841491F6E51FE00D3A50A /* STLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11841481F6E51FE00D3A50A /* STLoginViewController.swift */; };
 		E118414B1F6E66A800D3A50A /* STEmailLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E118414A1F6E66A800D3A50A /* STEmailLoginViewController.swift */; };
 		E1A81EC51F56AC730036FE01 /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1A81EC41F56AC730036FE01 /* KakaoOpenSDK.framework */; };
+		E1A9331C1F7B861200879697 /* STQAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A9331B1F7B861200879697 /* STQAViewController.swift */; };
 		E1B3C5D31F77E8080029B88D /* selectTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B3C5D21F77E8080029B88D /* selectTextField.swift */; };
 		E1B3C5D51F77F0B60029B88D /* STImgUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B3C5D41F77F0B60029B88D /* STImgUploadViewController.swift */; };
 		E1BD4E8D1F54163D00760128 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BD4E8C1F54163D00760128 /* AppDelegate.swift */; };
@@ -63,6 +64,7 @@
 		E118414A1F6E66A800D3A50A /* STEmailLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STEmailLoginViewController.swift; sourceTree = "<group>"; };
 		E11FC8DB1F56A38E00961E39 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		E1A81EC41F56AC730036FE01 /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoOpenSDK.framework; sourceTree = "<group>"; };
+		E1A9331B1F7B861200879697 /* STQAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STQAViewController.swift; sourceTree = "<group>"; };
 		E1B3C5D21F77E8080029B88D /* selectTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectTextField.swift; sourceTree = "<group>"; };
 		E1B3C5D41F77F0B60029B88D /* STImgUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STImgUploadViewController.swift; sourceTree = "<group>"; };
 		E1BD4E891F54163D00760128 /* st_ring.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = st_ring.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -232,6 +234,7 @@
 				E103AB871F6FF35A00E4D496 /* STJoinNavigationController.swift */,
 				E1B3C5D41F77F0B60029B88D /* STImgUploadViewController.swift */,
 				E1C9418C1F78FA4F000B0B02 /* imgUploadCollectionViewCell.swift */,
+				E1A9331B1F7B861200879697 /* STQAViewController.swift */,
 			);
 			name = Account;
 			sourceTree = "<group>";
@@ -569,6 +572,7 @@
 				E1BD4E951F54163D00760128 /* st_ring.xcdatamodeld in Sources */,
 				E1BD4EC41F5417B100760128 /* STStartViewController.swift in Sources */,
 				E103AB841F6FE6CF00E4D496 /* STSMSConfrimViewController.swift in Sources */,
+				E1A9331C1F7B861200879697 /* STQAViewController.swift in Sources */,
 				E11841491F6E51FE00D3A50A /* STLoginViewController.swift in Sources */,
 				E1C9418D1F78FA4F000B0B02 /* imgUploadCollectionViewCell.swift in Sources */,
 				E1BD4E8D1F54163D00760128 /* AppDelegate.swift in Sources */,
