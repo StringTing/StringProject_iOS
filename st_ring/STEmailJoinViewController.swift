@@ -144,6 +144,11 @@ class STEmailJoinViewController: UIViewController, UITextFieldDelegate{
         }
     }
     
+    @IBAction func backBtn(_ sender: Any) {
+        let vc = self.storyboard!.instantiateViewController(withIdentifier: "STStartViewController") as! STStartViewController
+        self.present(vc, animated: true, completion: nil)
+    }
+    
     @IBAction func JoinAction(_ sender: Any) {
         guard let STSMSConfirm = storyboard?.instantiateViewController(withIdentifier: "STSMSConfrimViewController") else {
             return

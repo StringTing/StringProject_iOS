@@ -9,5 +9,7 @@
 import UIKit
 
 class imgUploadCollectionViewCell: UICollectionViewCell {
-    
+    @IBOutlet weak var cellBtn: UIButton!
+    @IBOutlet weak var CellLabel: UILabel!
+    @IBOutlet weak var cellImg: UIImageView!
 }

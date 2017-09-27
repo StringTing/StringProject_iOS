@@ -73,7 +73,7 @@ class STBasicInfoViewController: UIViewController, UIPickerViewDelegate, UIPicke
         let tap = UITapGestureRecognizer(target: self, action: #selector(STBasicInfoViewController.tapView))
         tap.delegate = self as? UIGestureRecognizerDelegate
         self.view.addGestureRecognizer(tap)
-        nextBtn.isEnabled = false
+        nextBtn.isEnabled = true
         nextBtn.backgroundColor = UIColor.lightGray
         
         schoolPicker.delegate = self
