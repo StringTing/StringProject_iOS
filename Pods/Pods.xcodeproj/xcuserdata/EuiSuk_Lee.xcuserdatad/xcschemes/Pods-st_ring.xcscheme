@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0195CEAAECCF00DD122B7DBDCC8A9A8A"
+               BlueprintIdentifier = "C889C1FE00E06B8AF2C233D856A1DBD5"
                BuildableName = "Pods_st_ring.framework"
                BlueprintName = "Pods-st_ring"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -26,6 +26,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
@@ -36,6 +37,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -45,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0195CEAAECCF00DD122B7DBDCC8A9A8A"
+            BlueprintIdentifier = "C889C1FE00E06B8AF2C233D856A1DBD5"
             BuildableName = "Pods_st_ring.framework"
             BlueprintName = "Pods-st_ring"
             ReferencedContainer = "container:Pods.xcodeproj">

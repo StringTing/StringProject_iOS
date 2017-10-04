@@ -38,7 +38,7 @@ class STImgUploadViewController: UIViewController, UICollectionViewDelegate, UIC
         certificationPicker.delegate = self
         cellPicker.delegate  = self
         
-        NextBtn.isEnabled = false
+//        NextBtn.isEnabled = false
         NextBtn.backgroundColor = UIColor.lightGray
     }
 
@@ -66,13 +66,13 @@ class STImgUploadViewController: UIViewController, UICollectionViewDelegate, UIC
         cell.cellBtn.addTarget(self, action: #selector(self.uploadCell), for: .touchUpInside)
         cell.cellImg.image = profilImg[indexPath.row]
         cell.cellBtn.tag = indexPath.row
+        if(cell.cellImg.image != UIImage(named : "defualt")!) {
+            cell.CellLabel.isHidden = true
+        } else {
+            cell.cellImg.image = profilImg[indexPath.row]
+        }
         
         return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        print(indexPath.row)
-        uploadCollection.reloadData()
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -117,5 +117,4 @@ class STImgUploadViewController: UIViewController, UICollectionViewDelegate, UIC
         self.currentIndexPathrow = sender.tag
         self.present(cellPicker, animated: true, completion: nil)
     }
-
 }

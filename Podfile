@@ -4,6 +4,7 @@
 pod 'FacebookCore'
 pod 'FacebookLogin'
 pod 'TTTAttributedLabel'
+pod 'JSQMessagesViewController'
 
 
 target 'st_ring' do
