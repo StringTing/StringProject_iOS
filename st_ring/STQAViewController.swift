@@ -18,24 +18,23 @@ class STQAViewController: JSQMessagesViewController {
     let Question = QA(id : "0", name : "Question")
     let Answer = QA(id : "1", name : "Answer")
     let QCase1 : [String] = [
-        "왜 그 일 하냐?",
-        "전공은 뭐냐",
-        "부모님은 뭐하시냐",
-        "금수저냐?"
+        "CASE 1 Q1",
+        "CASE 1 Q2",
+        "CASE 1 Q3",
+        "CASE 1 Q4"
         ]
     let QCase2 : [String] = [
-        "여혐 함?",
-        "역시 여자는 추석엔 전을 부쳐야지",
-        "당연히 시댁을 늦게 가야하는거 아니야?",
-        "남자들이 운전하는걸 감사히 생각해야지;;;"
+        "CASE 2 Q1",
+        "CASE 2 Q2",
+        "CASE 2 Q3",
+        "CASE 2 Q4"
     ]
     let QCase3 : [String] = [
-        "넌 이상형이 뭐냐?",
-        "주말엔 뭐하냐",
-        "뭐 음식 가리는거 있음?",
-        "영화는 어떤 장르?"
+        "CASE 3 Q1",
+        "CASE 3 Q2",
+        "CASE 3 Q3",
+        "CASE 3 Q4"
     ]
-    let introMessage = JSQMessage(senderId: "0", displayName: "Question", text : "안녕하세요! \n회원정보를 입력하시느라 고생많으셨어요~ \n 이제 마지막 단계인데요! \n제가 하는 질문을 이상형인 사람이 질문한다고생각해주시고 정성스럽게 답장해주세요!")
     var randQuestion = [String]()
     var QAMessage = [JSQMessage]()
     var QuestionMessage = [JSQMessage]()
@@ -47,6 +46,8 @@ class STQAViewController: JSQMessagesViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let introMessage = JSQMessage(senderId: "0", displayName: "Question", text : "안녕하세요! \n회원정보를 입력하시느라 고생많으셨어요~ \n 이제 마지막 단계인데요! \n제가 하는 질문을 이상형인 사람이 질문한다고생각해주시고 정성스럽게 답장해주세요!")
+        
         self.senderId = currentUser.id
         self.senderDisplayName = currentUser.name
         self.inputToolbar.contentView.leftBarButtonItem = nil
@@ -63,7 +64,7 @@ class STQAViewController: JSQMessagesViewController {
         let message = JSQMessage(senderId: senderId, displayName: senderDisplayName, text: text)
         
         QAMessage.append(message!)
-        
+        questioner()
         finishSendingMessage()
     }
     
@@ -118,5 +119,17 @@ class STQAViewController: JSQMessagesViewController {
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
         return QAMessage[indexPath.row]
+    }
+    
+    func questioner() {
+        if(QAMessage.count == 3) {
+            QAMessage.append(QuestionMessage[1])
+        } else if (QAMessage.count == 5) {
+            QAMessage.append(QuestionMessage[2])
+        } else if (QAMessage.count == 7) {
+            QAMessage.append(QuestionMessage[3])
+        } else {
+            return
+        }
     }
 }

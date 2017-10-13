@@ -941,10 +941,10 @@ String 심사를 통과하면 더욱 더 믿음가는 회원과 매칭이 됩니
             </objects>
             <point key="canvasLocation" x="4261.6000000000004" y="-514.09295352323841"/>
         </scene>
-        <!--View Controller-->
+        <!--이상형의 그녀-->
         <scene sceneID="g08-4J-nwf">
             <objects>
-                <viewController storyboardIdentifier="STQAViewController" id="2Jv-1z-e86" customClass="STQAViewController" customModule="st_ring" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="STQAViewController" title="이상형의 그녀" id="2Jv-1z-e86" customClass="STQAViewController" customModule="st_ring" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pKh-je-Pcc"/>
                         <viewControllerLayoutGuide type="bottom" id="KNp-IL-xd3"/>
