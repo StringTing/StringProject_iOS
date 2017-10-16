@@ -15,6 +15,11 @@
 		E103AB8A1F6FF62200E4D496 /* STBasicInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E103AB891F6FF62200E4D496 /* STBasicInfoViewController.swift */; };
 		E11841491F6E51FE00D3A50A /* STLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11841481F6E51FE00D3A50A /* STLoginViewController.swift */; };
 		E118414B1F6E66A800D3A50A /* STEmailLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E118414A1F6E66A800D3A50A /* STEmailLoginViewController.swift */; };
+		E16CFC171F9498F300CB5EF3 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E16CFC151F9498F300CB5EF3 /* ChatViewController.xib */; };
+		E16CFC1A1F949A2900CB5EF3 /* MYEditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16CFC181F949A2900CB5EF3 /* MYEditTableViewCell.swift */; };
+		E16CFC1B1F949A2900CB5EF3 /* MYEditTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E16CFC191F949A2900CB5EF3 /* MYEditTableViewCell.xib */; };
+		E16CFC1E1F949A5700CB5EF3 /* OtherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16CFC1C1F949A5700CB5EF3 /* OtherTableViewCell.swift */; };
+		E16CFC1F1F949A5700CB5EF3 /* OtherTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E16CFC1D1F949A5700CB5EF3 /* OtherTableViewCell.xib */; };
 		E1A81EC51F56AC730036FE01 /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1A81EC41F56AC730036FE01 /* KakaoOpenSDK.framework */; };
 		E1A9331C1F7B861200879697 /* STQAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A9331B1F7B861200879697 /* STQAViewController.swift */; };
 		E1B3C5D31F77E8080029B88D /* selectTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B3C5D21F77E8080029B88D /* selectTextField.swift */; };
@@ -63,6 +68,11 @@
 		E11841481F6E51FE00D3A50A /* STLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STLoginViewController.swift; sourceTree = "<group>"; };
 		E118414A1F6E66A800D3A50A /* STEmailLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STEmailLoginViewController.swift; sourceTree = "<group>"; };
 		E11FC8DB1F56A38E00961E39 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		E16CFC151F9498F300CB5EF3 /* ChatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
+		E16CFC181F949A2900CB5EF3 /* MYEditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYEditTableViewCell.swift; sourceTree = "<group>"; };
+		E16CFC191F949A2900CB5EF3 /* MYEditTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MYEditTableViewCell.xib; sourceTree = "<group>"; };
+		E16CFC1C1F949A5700CB5EF3 /* OtherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherTableViewCell.swift; sourceTree = "<group>"; };
+		E16CFC1D1F949A5700CB5EF3 /* OtherTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherTableViewCell.xib; sourceTree = "<group>"; };
 		E1A81EC41F56AC730036FE01 /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoOpenSDK.framework; sourceTree = "<group>"; };
 		E1A9331B1F7B861200879697 /* STQAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STQAViewController.swift; sourceTree = "<group>"; };
 		E1B3C5D21F77E8080029B88D /* selectTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectTextField.swift; sourceTree = "<group>"; };
@@ -137,6 +147,14 @@
 			children = (
 			);
 			name = Common;
+			sourceTree = "<group>";
+		};
+		E16CFC131F94496000CB5EF3 /* ChatViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E16CFC151F9498F300CB5EF3 /* ChatViewController.xib */,
+			);
+			name = ChatViewController;
 			sourceTree = "<group>";
 		};
 		E19694101F55540300CD889A /* Account */ = {
@@ -235,6 +253,10 @@
 				E1B3C5D41F77F0B60029B88D /* STImgUploadViewController.swift */,
 				E1C9418C1F78FA4F000B0B02 /* imgUploadCollectionViewCell.swift */,
 				E1A9331B1F7B861200879697 /* STQAViewController.swift */,
+				E16CFC181F949A2900CB5EF3 /* MYEditTableViewCell.swift */,
+				E16CFC191F949A2900CB5EF3 /* MYEditTableViewCell.xib */,
+				E16CFC1C1F949A5700CB5EF3 /* OtherTableViewCell.swift */,
+				E16CFC1D1F949A5700CB5EF3 /* OtherTableViewCell.xib */,
 			);
 			name = Account;
 			sourceTree = "<group>";
@@ -242,6 +264,7 @@
 		E1D7AACB1F69551100346E2C /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				E16CFC131F94496000CB5EF3 /* ChatViewController */,
 				E1B3C5D21F77E8080029B88D /* selectTextField.swift */,
 			);
 			name = Common;
@@ -380,7 +403,10 @@
 				E1BD4E9A1F54163D00760128 /* LaunchScreen.storyboard in Resources */,
 				E1BD4E971F54163D00760128 /* Assets.xcassets in Resources */,
 				E1BD4EC11F54176300760128 /* STAccountStoryboard.storyboard in Resources */,
+				E16CFC171F9498F300CB5EF3 /* ChatViewController.xib in Resources */,
 				E1BD4E921F54163D00760128 /* Main.storyboard in Resources */,
+				E16CFC1B1F949A2900CB5EF3 /* MYEditTableViewCell.xib in Resources */,
+				E16CFC1F1F949A5700CB5EF3 /* OtherTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,8 +538,6 @@
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
-				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
-				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/TTTAttributedLabel/TTTAttributedLabel.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -523,8 +547,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTTAttributedLabel.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -572,12 +594,14 @@
 				E1BD4E8F1F54163D00760128 /* ViewController.swift in Sources */,
 				E118414B1F6E66A800D3A50A /* STEmailLoginViewController.swift in Sources */,
 				E103AB8A1F6FF62200E4D496 /* STBasicInfoViewController.swift in Sources */,
+				E16CFC1A1F949A2900CB5EF3 /* MYEditTableViewCell.swift in Sources */,
 				E103AB881F6FF35A00E4D496 /* STJoinNavigationController.swift in Sources */,
 				E1BD4E951F54163D00760128 /* st_ring.xcdatamodeld in Sources */,
 				E1BD4EC41F5417B100760128 /* STStartViewController.swift in Sources */,
 				E103AB841F6FE6CF00E4D496 /* STSMSConfrimViewController.swift in Sources */,
 				E1A9331C1F7B861200879697 /* STQAViewController.swift in Sources */,
 				E11841491F6E51FE00D3A50A /* STLoginViewController.swift in Sources */,
+				E16CFC1E1F949A5700CB5EF3 /* OtherTableViewCell.swift in Sources */,
 				E1C9418D1F78FA4F000B0B02 /* imgUploadCollectionViewCell.swift in Sources */,
 				E1BD4E8D1F54163D00760128 /* AppDelegate.swift in Sources */,
 				E1B3C5D31F77E8080029B88D /* selectTextField.swift in Sources */,

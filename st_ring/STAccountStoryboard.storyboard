@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -949,15 +950,61 @@ String 심사를 통과하면 더욱 더 믿음가는 회원과 매칭이 됩니
                         <viewControllerLayoutGuide type="top" id="pKh-je-Pcc"/>
                         <viewControllerLayoutGuide type="bottom" id="KNp-IL-xd3"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ay9-S5-OVL">
+                    <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="xFg-hP-iaG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f8h-Xi-frV">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="omc-1D-FvS">
+                                        <rect key="frame" x="325" y="10" width="42" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="전송"/>
+                                        <connections>
+                                            <action selector="sendAction:" destination="2Jv-1z-e86" eventType="touchUpInside" id="2tb-Nv-vFg"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CMS-2E-KdR">
+                                        <rect key="frame" x="8" y="10" width="309" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="6XX-kg-Unr"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GCf-SL-AO3">
+                                <rect key="frame" x="0.0" y="20" width="375" height="597"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="f8h-Xi-frV" firstAttribute="bottom" secondItem="cCZ-yR-TVA" secondAttribute="bottom" id="91M-DQ-Xcc"/>
+                            <constraint firstItem="f8h-Xi-frV" firstAttribute="leading" secondItem="cCZ-yR-TVA" secondAttribute="leading" id="SAs-Ub-qie"/>
+                            <constraint firstItem="f8h-Xi-frV" firstAttribute="trailing" secondItem="cCZ-yR-TVA" secondAttribute="trailing" id="TPV-Gs-Mzm"/>
+                            <constraint firstItem="f8h-Xi-frV" firstAttribute="top" secondItem="GCf-SL-AO3" secondAttribute="bottom" id="UXU-Wq-RVf"/>
+                            <constraint firstItem="GCf-SL-AO3" firstAttribute="leading" secondItem="cCZ-yR-TVA" secondAttribute="leading" id="eE9-19-3Wd"/>
+                            <constraint firstItem="GCf-SL-AO3" firstAttribute="top" secondItem="pKh-je-Pcc" secondAttribute="bottom" id="f2U-IO-KJk"/>
+                            <constraint firstItem="GCf-SL-AO3" firstAttribute="trailing" secondItem="cCZ-yR-TVA" secondAttribute="trailing" id="upV-vK-E78"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cCZ-yR-TVA"/>
                     </view>
+                    <connections>
+                        <outlet property="chatView" destination="GCf-SL-AO3" id="YRn-jR-0xy"/>
+                        <outlet property="inputTextField" destination="CMS-2E-KdR" id="jat-RO-Kc3"/>
+                        <outlet property="inputbar" destination="f8h-Xi-frV" id="e1R-Q4-gPp"/>
+                        <outlet property="sendButton" destination="omc-1D-FvS" id="DNO-zn-xgz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ssy-GR-rsu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5038" y="-514"/>
+            <point key="canvasLocation" x="5037.6000000000004" y="-514.09295352323841"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="puD-SK-Bq0">

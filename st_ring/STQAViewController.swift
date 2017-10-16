@@ -7,16 +7,17 @@
 //
 
 import UIKit
-import JSQMessagesViewController
 
-struct QA {
-    let id: String
-    let name: String
+struct message {
+    let typeId : Int
+    var text : String
 }
 
-class STQAViewController: JSQMessagesViewController {
-    let Question = QA(id : "0", name : "Question")
-    let Answer = QA(id : "1", name : "Answer")
+class STQAViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    @IBOutlet weak var chatView: UITableView!
+    @IBOutlet weak var inputbar: UIView!
+    @IBOutlet weak var inputTextField: UITextField!
+    @IBOutlet weak var sendButton: UIButton!
     let QCase1 : [String] = [
         "CASE 1 Q1",
         "CASE 1 Q2",
@@ -36,36 +37,22 @@ class STQAViewController: JSQMessagesViewController {
         "CASE 3 Q4"
     ]
     var randQuestion = [String]()
-    var QAMessage = [JSQMessage]()
-    var QuestionMessage = [JSQMessage]()
-    var currentUser: QA {
-        return Answer
-    }
-    
+    var QAMessage = [message]()
+    var QuestionMessage = [message]()
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let introMessage = JSQMessage(senderId: "0", displayName: "Question", text : "안녕하세요! \n회원정보를 입력하시느라 고생많으셨어요~ \n 이제 마지막 단계인데요! \n제가 하는 질문을 이상형인 사람이 질문한다고생각해주시고 정성스럽게 답장해주세요!")
-        
-        self.senderId = currentUser.id
-        self.senderDisplayName = currentUser.name
-        self.inputToolbar.contentView.leftBarButtonItem = nil
-        self.QAMessage.append(introMessage!)
+        chatView.delegate = self
+        chatView.dataSource = self
         self.QuestionType()
-        self.QAMessage.append(QuestionMessage[0])
+        QAMessage.append(message(typeId: 0, text: "안녕하세요! \n회원정보를 입력하시느라 고생많으셨어요~ \n 이제 마지막 단계인데요! \n제가 하는 질문을 이상형인 사람이 질문한다고생각해주시고 정성스럽게 답장해주세요!"))
+        QAMessage.append(QuestionMessage[0])
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-    
-    override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
-        let message = JSQMessage(senderId: senderId, displayName: senderDisplayName, text: text)
-        
-        QAMessage.append(message!)
-        questioner()
-        finishSendingMessage()
     }
     
     func QuestionType (){
@@ -79,46 +66,9 @@ class STQAViewController: JSQMessagesViewController {
         } else {
             self.randQuestion = self.QCase3
         }
-        
         for i in self.randQuestion {
-            let question = JSQMessage(senderId: "0", displayName: "Question", text: i)
-            self.QuestionMessage.append(question!)
+            QuestionMessage.append(message(typeId: 0, text: i))
         }
-    }
-    
-    override func collectionView(_ collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAt indexPath: IndexPath!) -> NSAttributedString! {
-        let QAMessage = self.QAMessage[indexPath.row]
-        let messageUsername = QAMessage.senderDisplayName
-        
-        return NSAttributedString(string: messageUsername!)
-    }
-    
-    override func collectionView(_ collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForMessageBubbleTopLabelAt indexPath: IndexPath!) -> CGFloat {
-        return 15
-    }
-    
-    override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
-        return nil
-    }
-    
-    override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
-        let bubbleFactory = JSQMessagesBubbleImageFactory()
-        
-        let QAMessage = self.QAMessage[indexPath.row]
-        
-        if currentUser.id == QAMessage.senderId {
-            return bubbleFactory?.outgoingMessagesBubbleImage(with: .green)
-        } else {
-            return bubbleFactory?.incomingMessagesBubbleImage(with: .black)
-        }
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return QAMessage.count
-    }
-    
-    override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
-        return QAMessage[indexPath.row]
     }
     
     func questioner() {
@@ -131,5 +81,34 @@ class STQAViewController: JSQMessagesViewController {
         } else {
             return
         }
+    }
+    
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return QAMessage.count
+    }
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if QAMessage[indexPath.row].typeId == 1 {
+            let cell = Bundle.main.loadNibNamed("MYEditTableViewCell", owner: self, options: nil)?.first as! MYEditTableViewCell
+            cell.messageText.text! = QAMessage[indexPath.row].text
+            cell.messageImg.image = UIImage(named: "defualt")!
+            cell.editbutton.tag = indexPath.row
+            return cell
+        } else {
+            let cell = Bundle.main.loadNibNamed("OtherTableViewCell", owner: self, options: nil)?.first as! OtherTableViewCell
+            cell.messageText.text! = QAMessage[indexPath.row].text
+            cell.messageImg.image = UIImage(named: "defualt")!
+            return cell
+        }
+    }
+    
+    @IBAction func sendAction(_ sender: Any) {
+        if let i = inputTextField.text {
+            self.QAMessage.append(message(typeId: 1, text: i))
+            self.inputTextField.text = ""
+            self.chatView.reloadData()
+        }
+        questioner()
+        self.chatView.reloadData()
     }
 }

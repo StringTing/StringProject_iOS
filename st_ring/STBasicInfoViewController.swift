@@ -64,7 +64,7 @@ class STBasicInfoViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
     var nextBtnYLocation:CGPoint!
     
-    var sex = true
+    var sex = false
     
     
     override func viewDidLoad() {
