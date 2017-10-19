@@ -20,6 +20,7 @@ class MYEditTableViewCell: UITableViewCell {
         tv.isEditable = false
         tv.isSelectable = false
         tv.isScrollEnabled = false
+//        tv.mult
         return tv
     }()
     let editButton : UIButton = {
@@ -50,7 +51,8 @@ class MYEditTableViewCell: UITableViewCell {
         bubbleView.addSubview(editButton)
         
         //textview constraint set
-        textView.centerXAnchor.constraint(equalTo: bubbleView.centerXAnchor).isActive = true
+        textView.leadingAnchor.constraint(equalTo: bubbleView.leadingAnchor, constant: 5).isActive = true
+        textView.trailingAnchor.constraint(equalTo: bubbleView.trailingAnchor, constant: -5).isActive = true
         textView.topAnchor.constraint(equalTo: bubbleView.topAnchor, constant: 5).isActive = true
         textView.bottomAnchor.constraint(equalTo: editButton.topAnchor).isActive = true
         
@@ -63,8 +65,8 @@ class MYEditTableViewCell: UITableViewCell {
         
         //bubbleview constraint set
         bubbleView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10).isActive = true
-        bubbleView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
-        bubbleView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        bubbleView.topAnchor.constraint(equalTo: self.topAnchor, constant: 5).isActive = true
+        bubbleView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant:-5).isActive = true
         bubbleWidthAnchor = bubbleView.widthAnchor.constraint(equalToConstant: 200)
         bubbleWidthAnchor?.isActive = true
     }

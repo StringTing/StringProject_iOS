@@ -957,25 +957,41 @@ String 심사를 통과하면 더욱 더 믿음가는 회원과 매칭이 됩니
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f8h-Xi-frV">
                                 <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="omc-1D-FvS">
-                                        <rect key="frame" x="325" y="10" width="42" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="omc-1D-FvS">
+                                        <rect key="frame" x="337" y="10" width="30" height="30"/>
                                         <state key="normal" title="전송"/>
                                         <connections>
                                             <action selector="sendAction:" destination="2Jv-1z-e86" eventType="touchUpInside" id="2tb-Nv-vFg"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="질문에 답해주세요!" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CMS-2E-KdR">
-                                        <rect key="frame" x="8" y="10" width="309" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <nil key="textColor"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" text="질문에 응답해주세요! (5자 이상)" translatesAutoresizingMaskIntoConstraints="NO" id="1AO-g8-J30">
+                                        <rect key="frame" x="8" y="10" width="321" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7R1-Pp-NWK">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                        <state key="normal" title="완료">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="1AO-g8-J30" secondAttribute="bottom" constant="10" id="1C5-hH-dpX"/>
                                     <constraint firstAttribute="height" constant="50" id="6XX-kg-Unr"/>
+                                    <constraint firstItem="omc-1D-FvS" firstAttribute="top" secondItem="f8h-Xi-frV" secondAttribute="top" constant="10" id="8oj-sy-48b"/>
+                                    <constraint firstAttribute="trailing" secondItem="7R1-Pp-NWK" secondAttribute="trailing" id="FfU-kQ-y64"/>
+                                    <constraint firstAttribute="bottom" secondItem="7R1-Pp-NWK" secondAttribute="bottom" id="JRw-Fa-9Yu"/>
+                                    <constraint firstItem="omc-1D-FvS" firstAttribute="leading" secondItem="1AO-g8-J30" secondAttribute="trailing" constant="8" id="NqS-GC-nGV"/>
+                                    <constraint firstAttribute="bottom" secondItem="omc-1D-FvS" secondAttribute="bottom" constant="10" id="R39-lj-5QP"/>
+                                    <constraint firstItem="1AO-g8-J30" firstAttribute="top" secondItem="f8h-Xi-frV" secondAttribute="top" constant="10" id="bJV-J5-wkz"/>
+                                    <constraint firstItem="1AO-g8-J30" firstAttribute="leading" secondItem="f8h-Xi-frV" secondAttribute="leading" constant="8" id="jBd-qa-smK"/>
+                                    <constraint firstItem="7R1-Pp-NWK" firstAttribute="leading" secondItem="f8h-Xi-frV" secondAttribute="leading" id="qY4-kj-r7I"/>
+                                    <constraint firstAttribute="trailing" secondItem="omc-1D-FvS" secondAttribute="trailing" constant="8" id="yIl-YU-f7c"/>
+                                    <constraint firstItem="7R1-Pp-NWK" firstAttribute="top" secondItem="f8h-Xi-frV" secondAttribute="top" id="yhp-dA-w1V"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GCf-SL-AO3">
@@ -1007,8 +1023,9 @@ String 심사를 통과하면 더욱 더 믿음가는 회원과 매칭이 됩니
                         <viewLayoutGuide key="safeArea" id="cCZ-yR-TVA"/>
                     </view>
                     <connections>
+                        <outlet property="DoneButton" destination="7R1-Pp-NWK" id="eLh-RJ-gWQ"/>
                         <outlet property="chatView" destination="GCf-SL-AO3" id="YRn-jR-0xy"/>
-                        <outlet property="inputTextField" destination="CMS-2E-KdR" id="jat-RO-Kc3"/>
+                        <outlet property="inputTextView" destination="1AO-g8-J30" id="blK-UT-bKW"/>
                         <outlet property="inputbar" destination="f8h-Xi-frV" id="e1R-Q4-gPp"/>
                         <outlet property="sendButton" destination="omc-1D-FvS" id="DNO-zn-xgz"/>
                     </connections>

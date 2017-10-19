@@ -43,14 +43,14 @@ class OtherTableViewCell: UITableViewCell {
         
         //bubbleview constraint set
         bubbleView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10).isActive = true
-        bubbleView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
-        bubbleView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        bubbleView.topAnchor.constraint(equalTo: self.topAnchor, constant: 5).isActive = true
+        bubbleView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5).isActive = true
         bubbleWidthAnchor = bubbleView.widthAnchor.constraint(equalToConstant: 200)
         bubbleWidthAnchor?.isActive = true
         
         //textview constraint set
-        textView.leadingAnchor.constraint(equalTo: bubbleView.leadingAnchor, constant: 10).isActive = true
-        textView.trailingAnchor.constraint(equalTo: bubbleView.trailingAnchor, constant: -10).isActive = true
+        textView.leadingAnchor.constraint(equalTo: bubbleView.leadingAnchor, constant: 5).isActive = true
+        textView.trailingAnchor.constraint(equalTo: bubbleView.trailingAnchor, constant: -5).isActive = true
         textView.topAnchor.constraint(equalTo: bubbleView.topAnchor, constant: 5).isActive = true
         textView.bottomAnchor.constraint(equalTo: bubbleView.bottomAnchor, constant: 5).isActive = true
         textView.heightAnchor.constraint(equalToConstant: 50).isActive = true
