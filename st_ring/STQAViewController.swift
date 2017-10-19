@@ -46,9 +46,11 @@ class STQAViewController: UIViewController, UITableViewDataSource, UITableViewDe
         chatView.delegate = self
         chatView.dataSource = self
         self.QuestionType()
-        QAMessage.append(message(typeId: 0, text: "안녕하세요! \n회원정보를 입력하시느라 고생많으셨어요~ \n 이제 마지막 단계인데요! \n제가 하는 질문을 이상형인 사람이 질문한다고생각해주시고 정성스럽게 답장해주세요!"))
+        QAMessage.append(message(typeId: 0, text: "안녕하세요! \n회원정보를 입력하시느라 고생많으셨어요~ \n이제 마지막 단계인데요! \n제가 하는 질문을 이상형인 사람이 질문한다고생각해주시고 정성스럽게 답장해주세요!"))
         QAMessage.append(QuestionMessage[0])
 
+        self.chatView.register(MYEditTableViewCell.self, forCellReuseIdentifier: "MYEditTableViewCell")
+        self.chatView.register(OtherTableViewCell.self, forCellReuseIdentifier: "OtherTableViewCell")
     }
 
     override func didReceiveMemoryWarning() {
@@ -89,17 +91,43 @@ class STQAViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if QAMessage[indexPath.row].typeId == 1 {
-            let cell = Bundle.main.loadNibNamed("MYEditTableViewCell", owner: self, options: nil)?.first as! MYEditTableViewCell
-            cell.messageText.text! = QAMessage[indexPath.row].text
-            cell.messageImg.image = UIImage(named: "defualt")!
-            cell.editbutton.tag = indexPath.row
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MYEditTableViewCell", for: indexPath) as! MYEditTableViewCell
+            let textWidth : CGFloat = estimateFrameForText(QAMessage[indexPath.row].text).width + 35
+            
+            cell.textView.text! = QAMessage[indexPath.row].text
+            cell.editButton.tag = indexPath.row
+            if(textWidth > 100){
+                cell.bubbleWidthAnchor?.constant = textWidth
+            } else {
+                cell.bubbleWidthAnchor?.constant = 100
+                cell.textView.textAlignment = .center
+            }
             return cell
         } else {
-            let cell = Bundle.main.loadNibNamed("OtherTableViewCell", owner: self, options: nil)?.first as! OtherTableViewCell
-            cell.messageText.text! = QAMessage[indexPath.row].text
-            cell.messageImg.image = UIImage(named: "defualt")!
+            let cell = tableView.dequeueReusableCell(withIdentifier: "OtherTableViewCell", for: indexPath) as! OtherTableViewCell
+            let textWidth : CGFloat = estimateFrameForText(QAMessage[indexPath.row].text).width + 35
+            
+            cell.textView.text! = QAMessage[indexPath.row].text
+            if(textWidth > 100){
+                cell.bubbleWidthAnchor?.constant = textWidth
+            } else {
+                cell.bubbleWidthAnchor?.constant = 100
+                cell.textView.textAlignment = .center
+            }
             return cell
         }
+    }
+    
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        var height : CGFloat = 80
+        
+        if QAMessage[indexPath.row].typeId == 1{
+            height = estimateFrameForText(QAMessage[indexPath.row].text).height + 60
+        } else {
+            height = estimateFrameForText(QAMessage[indexPath.row].text).height + 35
+        }
+        
+        return height
     }
     
     @IBAction func sendAction(_ sender: Any) {
@@ -110,5 +138,11 @@ class STQAViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         questioner()
         self.chatView.reloadData()
+    }
+    
+    private func estimateFrameForText(_ text: String) -> CGRect {
+        let size = CGSize(width: 200, height: 1000)
+        let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
+        return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 16)], context: nil)
     }
 }

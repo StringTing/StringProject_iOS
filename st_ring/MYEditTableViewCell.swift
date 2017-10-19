@@ -2,71 +2,75 @@
 //  MYEditTableViewCell.swift
 //  st_ring
 //
-//  Created by EuiSuk_Lee on 2017. 10. 16..
+//  Created by EuiSuk_Lee on 2017. 10. 17..
 //  Copyright © 2017년 EuiSuk_Lee. All rights reserved.
 //
 
 import UIKit
 
 class MYEditTableViewCell: UITableViewCell {
-    @IBOutlet weak var messageText: UITextView!
-    @IBOutlet weak var editbutton: UIButton!
-    @IBOutlet weak var messageImg: UIImageView!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+    let textView : UITextView = {
+        let tv = UITextView()
+        tv.text = "TEST TEXT"
+        tv.font = UIFont.systemFont(ofSize: 16)
+        tv.translatesAutoresizingMaskIntoConstraints = false
+        tv.backgroundColor = .clear
+        tv.textColor = .white
+        tv.isEditable = false
+        tv.isSelectable = false
+        tv.isScrollEnabled = false
+        return tv
+    }()
+    let editButton : UIButton = {
+        let eb = UIButton()
+        eb.setTitle("수정하기", for: UIControlState.normal)
+        eb.translatesAutoresizingMaskIntoConstraints = false
+        eb.isEnabled = true
+        eb.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        return eb
+    }()
+    let bubbleView : UIView = {
+        let bv = UIView()
+        bv.backgroundColor = UIColor.blue
+        bv.translatesAutoresizingMaskIntoConstraints = false
+        bv.layer.cornerRadius = 10
+        bv.layer.masksToBounds = true
+        return bv
+    }()
+    var bubbleWidthAnchor: NSLayoutConstraint?
+    var bubbleHeightAnchor: NSLayoutConstraint?
     
-    override func draw(_ rect: CGRect) {
-        let bubbleSpace = CGRect(x: self.messageText.frame.origin.x, y: self.messageText.frame.origin.y, width: self.messageText.frame.width, height: self.bounds.height)
-        _ = UIBezierPath(roundedRect: bubbleSpace, byRoundingCorners: [.topLeft , .topRight , .bottomRight], cornerRadii: CGSize(width: 20, height: 20))
-        
-        let bubblePath = UIBezierPath(roundedRect: bubbleSpace, cornerRadius: 20.0)
-        
-        UIColor.blue.setStroke()
-        UIColor.blue.setFill()
-        bubblePath.stroke()
-        bubblePath.fill()
-        
-        var triangleSpace = CGRect(x: 0, y: self.bounds.height - 20, width: 20, height: 20)
-        let trianglePath = UIBezierPath()
-        let startPoint = CGPoint(x: 20.0, y: self.bounds.height - 40)
-        let tipPoint = CGPoint(x: 0.0, y: self.bounds.height - 30)
-        let endPoint = CGPoint(x: 20.0, y: self.bounds.height - 20)
-        trianglePath.move(to: startPoint)
-        trianglePath.addLine(to: tipPoint)
-        trianglePath.addLine(to: endPoint)
-        trianglePath.close()
-        UIColor.blue.setStroke()
-        UIColor.blue.setFill()
-        trianglePath.stroke()
-        trianglePath.fill()
-        
-        
-    }
-    
-    override init(style: UITableViewCellStyle, reuseIdentifier: String!) {
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        //addview
+        self.contentView.addSubview(bubbleView)
+        bubbleView.addSubview(textView)
+        bubbleView.addSubview(editButton)
+        
+        //textview constraint set
+        textView.centerXAnchor.constraint(equalTo: bubbleView.centerXAnchor).isActive = true
+        textView.topAnchor.constraint(equalTo: bubbleView.topAnchor, constant: 5).isActive = true
+        textView.bottomAnchor.constraint(equalTo: editButton.topAnchor).isActive = true
+        
+        
+        //editbutton constraint set
+        editButton.leadingAnchor.constraint(equalTo: bubbleView.leadingAnchor, constant: 10).isActive = true
+        editButton.trailingAnchor.constraint(equalTo: bubbleView.trailingAnchor, constant: -10).isActive = true
+        editButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        editButton.bottomAnchor.constraint(equalTo: bubbleView.bottomAnchor).isActive = true
+        
+        //bubbleview constraint set
+        bubbleView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10).isActive = true
+        bubbleView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
+        bubbleView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        bubbleWidthAnchor = bubbleView.widthAnchor.constraint(equalToConstant: 200)
+        bubbleWidthAnchor?.isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        //        var backgroundImage = UIImageView(image: UIImage(named: "star"))
-        //        backgroundImage.contentMode = UIViewContentMode.ScaleAspectFit
-        //        self.backgroundView = backgroundImage
-    }
-    
-    
+
 }
