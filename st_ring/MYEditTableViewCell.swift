@@ -13,7 +13,7 @@ class MYEditTableViewCell: UITableViewCell {
     let textView : UITextView = {
         let tv = UITextView()
         tv.text = "TEST TEXT"
-        tv.font = UIFont.systemFont(ofSize: 16)
+        tv.font = UIFont.systemFont(ofSize: 14)
         tv.translatesAutoresizingMaskIntoConstraints = false
         tv.backgroundColor = .clear
         tv.textColor = .white

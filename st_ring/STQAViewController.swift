@@ -7,10 +7,26 @@
 //
 
 import UIKit
+import JSONJoy
+import Alamofire
 
 struct message {
     let typeId : Int
     var text : String
+}
+
+struct Answer : JSONJoy {
+    let Answer1 : String
+    let Answer2 : String
+    let Answer3 : String
+    let Answer4 : String
+    
+    init(_ decoder : JSONLoader) throws {
+        Answer1 = try decoder["Answer1"].get()
+        Answer2 = try decoder["Answer2"].get()
+        Answer3 = try decoder["Answer3"].get()
+        Answer4 = try decoder["Answer4"].get()
+    }
 }
 
 class STQAViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextViewDelegate {
@@ -38,10 +54,13 @@ class STQAViewController: UIViewController, UITableViewDataSource, UITableViewDe
         "CASE 3 Q3",
         "CASE 3 Q4"
     ]
+    let server_domain = "http://115.68.226.54:3825"
+    
     var randQuestion = [String]()
     var QAMessage = [message]()
     var QuestionMessage = [message]()
     var currentEditMessage : IndexPath?
+    var inputBarYLocation : CGFloat?
     
 
     override func viewDidLoad() {
@@ -55,6 +74,14 @@ class STQAViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
         self.chatView.register(MYEditTableViewCell.self, forCellReuseIdentifier: "MYEditTableViewCell")
         self.chatView.register(OtherTableViewCell.self, forCellReuseIdentifier: "OtherTableViewCell")
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(STQAViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(STQAViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        inputBarYLocation = self.inputbar.frame.origin.y
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
+        self.chatView.isUserInteractionEnabled = true
+        self.chatView.addGestureRecognizer(tapGesture)
     }
 
     override func didReceiveMemoryWarning() {
@@ -139,6 +166,23 @@ class STQAViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.inputTextView.textColor = .black
     }
     
+    public func textViewDidEndEditing(_ textView: UITextView) {
+        if (self.inputTextView.text == "") {
+            self.inputTextView.text = "질문에 응답해주세요! (5자 이상)"
+            self.inputTextView.textColor = .lightGray
+        }
+    }
+    
+    public func textViewDidChange(_ textView: UITextView) {
+        if (self.inputTextView.text == "") {
+            self.inputTextView.text = "질문에 응답해주세요! (5자 이상)"
+            self.inputTextView.textColor = .lightGray
+        } else if (self.inputTextView.text == "질문에 응답해주세요! (5자 이상") {
+            self.inputTextView.text = ""
+            self.inputTextView.textColor = .black
+        }
+    }
+    
     @IBAction func sendAction(_ sender: Any) {
         if (self.sendButton.titleLabel?.text == "완료") {
             if let i = inputTextView.text {
@@ -160,21 +204,36 @@ class STQAViewController: UIViewController, UITableViewDataSource, UITableViewDe
             self.DoneButton.backgroundColor = .black
             self.DoneButton.isHidden = false
         }
-        
-        scrollToBottom()
+        self.scrollToBottom()
+    }
+    
+    @IBAction func doneAction(_ sender: Any) {
+        let parameters = ["test" : "test"]
+        Alamofire.request(self.server_domain, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseJSON{response in
+            switch response.result {
+            case .success:
+                print("Validation Successful")
+            case .failure(let error):
+                print("이것은 에러입니다 삐빅 :" + String(describing: error))
+            }
+            
+            if let JSON = response.result.value {
+                print("JSON: \(JSON)")
+            }
+        }
     }
     
     private func estimateFrameForText(_ text: String) -> CGRect {
         let size = CGSize(width: 200, height: 1000)
         let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
-        return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 16)], context: nil)
+        return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)], context: nil)
     }
     
     func editButtonAction(sender : UIButton){
         if let cell = sender.superview?.superview?.superview as? MYEditTableViewCell {
             self.inputTextView.text = cell.textView.text
-            self.sendButton.titleLabel?.text = "완료"
             self.currentEditMessage = chatView.indexPath(for: cell)
+            self.sendButton.titleLabel?.text = "완료"
             self.DoneButton.isHidden = true
         }
     }
@@ -184,5 +243,36 @@ class STQAViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let indexPath = IndexPath(row: self.QAMessage.count-1, section: 0)
             self.chatView.scrollToRow(at: indexPath, at: .bottom, animated: true)
         }
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
+            let window = self.view.window?.frame {
+            // We're not just minusing the kb height from the view height because
+            // the view could already have been resized for the keyboard before
+            self.view.frame = CGRect(x: self.view.frame.origin.x,
+                                     y: self.view.frame.origin.y,
+                                     width: self.view.frame.width,
+                                     height: window.origin.y + window.height - keyboardSize.height)
+        } else {
+            debugPrint("We're showing the keyboard and either the keyboard size or window is nil: panic widely.")
+        }
+        self.scrollToBottom()
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            let viewHeight = self.view.frame.height
+            self.view.frame = CGRect(x: self.view.frame.origin.x,
+                                     y: self.view.frame.origin.y,
+                                     width: self.view.frame.width,
+                                     height: viewHeight + keyboardSize.height)
+        } else {
+            debugPrint("We're about to hide the keyboard and the keyboard size is nil. Now is the rapture.")
+        }
+    }
+    
+    func hideKeyboard() {
+        self.view.endEditing(true)
     }
 }

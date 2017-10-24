@@ -4,7 +4,8 @@
 pod 'FacebookCore'
 pod 'FacebookLogin'
 pod 'TTTAttributedLabel'
-
+pod 'JSONJoy-Swift'
+pod 'Alamofire'
 
 target 'st_ring' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks

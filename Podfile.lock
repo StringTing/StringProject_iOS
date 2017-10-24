@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.5.1)
   - Bolts (1.8.4):
     - Bolts/AppLinks (= 1.8.4)
     - Bolts/Tasks (= 1.8.4)
@@ -17,21 +18,26 @@ PODS:
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.27.0):
     - FBSDKCoreKit
+  - JSONJoy-Swift (3.0.2)
   - TTTAttributedLabel (2.0.0)
 
 DEPENDENCIES:
+  - Alamofire
   - FacebookCore
   - FacebookLogin
+  - JSONJoy-Swift
   - TTTAttributedLabel
 
 SPEC CHECKSUMS:
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
   FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
   FBSDKCoreKit: ebc6c5f5b3f0e72396041050e2266781a38ac587
   FBSDKLoginKit: 887be4b7452e1c5a3cc4485ce152529965a0c41e
+  JSONJoy-Swift: 80044e6f86a6c442dbeb8864b76d973bbb5dd82e
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
-PODFILE CHECKSUM: 43689497bf86ace01877718d3e50c0a084487028
+PODFILE CHECKSUM: c277aae386308a6295a4512eb31bca5f5917a749
 
 COCOAPODS: 1.3.1
