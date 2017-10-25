@@ -123,7 +123,7 @@ class STQAViewController: UIViewController, UITableViewDataSource, UITableViewDe
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if QAMessage[indexPath.row].typeId == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MYEditTableViewCell", for: indexPath) as! MYEditTableViewCell
-            let textWidth : CGFloat = estimateFrameForText(QAMessage[indexPath.row].text).width + 25
+            let textWidth : CGFloat = estimateFrameForText(QAMessage[indexPath.row].text).width + 30
             
             cell.textView.text! = QAMessage[indexPath.row].text
             cell.editButton.tag = indexPath.row
@@ -137,14 +137,9 @@ class STQAViewController: UIViewController, UITableViewDataSource, UITableViewDe
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "OtherTableViewCell", for: indexPath) as! OtherTableViewCell
-            let textWidth : CGFloat = estimateFrameForText(QAMessage[indexPath.row].text).width + 25
-            
+            let textWidth : CGFloat = estimateFrameForText(QAMessage[indexPath.row].text).width + 20
             cell.textView.text! = QAMessage[indexPath.row].text
-            if(textWidth > 100){
-                cell.bubbleWidthAnchor?.constant = textWidth
-            } else {
-                cell.bubbleWidthAnchor?.constant = 100
-            }
+            cell.bubbleWidthAnchor?.constant = textWidth
             return cell
         }
     }
@@ -153,9 +148,9 @@ class STQAViewController: UIViewController, UITableViewDataSource, UITableViewDe
         var height : CGFloat = 80
         
         if QAMessage[indexPath.row].typeId == 1{
-            height = estimateFrameForText(QAMessage[indexPath.row].text).height + 65
+            height = estimateFrameForText(QAMessage[indexPath.row].text).height + 50
         } else {
-            height = estimateFrameForText(QAMessage[indexPath.row].text).height + 35
+            height = estimateFrameForText(QAMessage[indexPath.row].text).height + 30
         }
         
         return height
@@ -189,6 +184,7 @@ class STQAViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 self.QAMessage[(currentEditMessage?.row)!].text = i
                 self.inputTextView.text = ""
                 self.chatView.reloadData()
+                self.sendButton.setTitle("전송", for: .normal)
             }
         } else {
             if let i = inputTextView.text {
@@ -223,26 +219,40 @@ class STQAViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
-    private func estimateFrameForText(_ text: String) -> CGRect {
-        let size = CGSize(width: 200, height: 1000)
-        let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
-        return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)], context: nil)
+    private func estimateFrameForText(_ text: String) -> CGSize {
+        let cellsize = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
+        cellsize.preferredMaxLayoutWidth = 200
+        cellsize.text = text
+        cellsize.numberOfLines = 0
+        cellsize.lineBreakMode = .byWordWrapping
+        cellsize.font = UIFont.systemFont(ofSize: 14)
+        cellsize.sizeToFit()
+        
+        return cellsize.frame.size
+        
+        
+        //let size = CGSize(width: 200, height: 1000)
+        //let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
+       
+        //return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)], context: nil)
+        
     }
     
     func editButtonAction(sender : UIButton){
-        if let cell = sender.superview?.superview?.superview as? MYEditTableViewCell {
+        if let cell = sender.superview?.superview as? MYEditTableViewCell {
             self.inputTextView.text = cell.textView.text
             self.currentEditMessage = chatView.indexPath(for: cell)
-            self.sendButton.titleLabel?.text = "완료"
+            self.inputTextView.textColor = UIColor.black
+            self.sendButton.setTitle("완료", for: .normal)
             self.DoneButton.isHidden = true
         }
     }
     
     func scrollToBottom(){
-        DispatchQueue.global(qos: .background).async {
+        //DispatchQueue.main.async {
             let indexPath = IndexPath(row: self.QAMessage.count-1, section: 0)
             self.chatView.scrollToRow(at: indexPath, at: .bottom, animated: true)
-        }
+        //}
     }
     
     func keyboardWillShow(notification: NSNotification) {

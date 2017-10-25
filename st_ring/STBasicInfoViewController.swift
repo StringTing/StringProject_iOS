@@ -92,7 +92,6 @@ class STBasicInfoViewController: UIViewController, UIPickerViewDelegate, UIPicke
         specialtyTextfield.delegate = self
         uploadCollection.delegate = self
         uploadCollection.dataSource = self
-        ScrollView.delegate = self
         
         schoolTextfield.inputView = schoolPicker
         locationTextfield.inputView = locationPicker

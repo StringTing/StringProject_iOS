@@ -10,13 +10,15 @@ import UIKit
 import FacebookLogin
 import FacebookCore
 import TTTAttributedLabel
+import SafariServices
 
 
 
-class STStartViewController: UIViewController,TTTAttributedLabelDelegate {
+class STStartViewController: UIViewController,TTTAttributedLabelDelegate, SFSafariViewControllerDelegate {
     @IBOutlet weak var StartLogoImg: UIImageView!
     @IBOutlet weak var emailJoin: UIButton!
     @IBOutlet weak var agreeLabel: TTTAttributedLabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +26,8 @@ class STStartViewController: UIViewController,TTTAttributedLabelDelegate {
         let range1 = NSMakeRange(21, 5)
         let range2 = NSMakeRange(29, 8)
         let agreeLabelText = "가입하기 또는 로그인 버튼을 누르면 \n이용 약관 및 개인정보취급방침에 동의하신 것이 됩니다."
+        let agreeActionTap = UIGestureRecognizer(target: self, action: #selector(self.webViewAction))
+        //agreeActionTap.delegate = self
         
         agreeLabel.text = agreeLabelText
         agreeLabel.textAlignment = .center
@@ -97,6 +101,10 @@ class STStartViewController: UIViewController,TTTAttributedLabelDelegate {
         }
         
         self.present(EmailJoin, animated: true, completion: nil)
+    }
+    
+    func webViewAction() {
+        
     }
     
 }

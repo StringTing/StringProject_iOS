@@ -10,25 +10,24 @@ import UIKit
 
 class MYEditTableViewCell: UITableViewCell {
     
-    let textView : UITextView = {
-        let tv = UITextView()
+    let textView : UILabel = {
+        let tv = UILabel()
         tv.text = "TEST TEXT"
         tv.font = UIFont.systemFont(ofSize: 14)
         tv.translatesAutoresizingMaskIntoConstraints = false
         tv.backgroundColor = .clear
         tv.textColor = .white
-        tv.isEditable = false
-        tv.isSelectable = false
-        tv.isScrollEnabled = false
-//        tv.mult
+        tv.lineBreakMode = .byWordWrapping
+        tv.numberOfLines = 0
+        
         return tv
     }()
     let editButton : UIButton = {
         let eb = UIButton()
-        eb.setTitle("수정하기", for: UIControlState.normal)
+        eb.setTitle("수정하기", for: .normal)
         eb.translatesAutoresizingMaskIntoConstraints = false
         eb.isEnabled = true
-        eb.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        eb.titleLabel?.font = UIFont.systemFont(ofSize: 12)
         return eb
     }()
     let bubbleView : UIView = {
@@ -47,12 +46,12 @@ class MYEditTableViewCell: UITableViewCell {
         
         //addview
         self.contentView.addSubview(bubbleView)
-        bubbleView.addSubview(textView)
-        bubbleView.addSubview(editButton)
+        self.contentView.addSubview(textView)
+        self.contentView.addSubview(editButton)
         
         //textview constraint set
-        textView.leadingAnchor.constraint(equalTo: bubbleView.leadingAnchor, constant: 5).isActive = true
-        textView.trailingAnchor.constraint(equalTo: bubbleView.trailingAnchor, constant: -5).isActive = true
+        textView.leadingAnchor.constraint(equalTo: bubbleView.leadingAnchor, constant: 10).isActive = true
+        textView.trailingAnchor.constraint(equalTo: bubbleView.trailingAnchor, constant: -10).isActive = true
         textView.topAnchor.constraint(equalTo: bubbleView.topAnchor, constant: 5).isActive = true
         textView.bottomAnchor.constraint(equalTo: editButton.topAnchor).isActive = true
         
