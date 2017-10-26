@@ -866,7 +866,7 @@ String 심사를 통과하면 더욱 더 믿음가는 회원과 매칭이 됩니
                 <navigationController storyboardIdentifier="STJoinNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="Zq2-Mv-Ifi" customClass="STJoinNavigationController" customModule="st_ring" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="H3X-4h-OZe">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

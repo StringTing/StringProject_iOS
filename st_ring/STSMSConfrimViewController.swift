@@ -22,7 +22,7 @@ class STSMSConfrimViewController: UIViewController{
     }
     
     @IBAction func NextBtn(_ sender: Any) {
-        guard let next = self.storyboard?.instantiateViewController(withIdentifier: "STBasicInfoViewController") else {
+        guard let next = self.storyboard?.instantiateViewController(withIdentifier: "STQAViewController") else {
             return
         }
         self.navigationController?.pushViewController(next, animated: true)

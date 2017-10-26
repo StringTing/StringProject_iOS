@@ -19,6 +19,7 @@ PODS:
   - FBSDKLoginKit (4.27.0):
     - FBSDKCoreKit
   - JSONJoy-Swift (3.0.2)
+  - KRWordWrapLabel (2.0.1)
   - TTTAttributedLabel (2.0.0)
 
 DEPENDENCIES:
@@ -26,6 +27,7 @@ DEPENDENCIES:
   - FacebookCore
   - FacebookLogin
   - JSONJoy-Swift
+  - KRWordWrapLabel
   - TTTAttributedLabel
 
 SPEC CHECKSUMS:
@@ -36,8 +38,9 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: ebc6c5f5b3f0e72396041050e2266781a38ac587
   FBSDKLoginKit: 887be4b7452e1c5a3cc4485ce152529965a0c41e
   JSONJoy-Swift: 80044e6f86a6c442dbeb8864b76d973bbb5dd82e
+  KRWordWrapLabel: a70d0e2c2baaab6e39bda828b9e83d47dab853e1
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
-PODFILE CHECKSUM: c277aae386308a6295a4512eb31bca5f5917a749
+PODFILE CHECKSUM: 55d1d4e1fc51766d2816d13cba037a885ae7d7d8
 
 COCOAPODS: 1.4.0.beta.1

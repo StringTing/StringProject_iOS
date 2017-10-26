@@ -10,6 +10,8 @@ import UIKit
 import JSONJoy
 import Alamofire
 
+
+
 struct message {
     let typeId : Int
     var text : String
@@ -221,21 +223,14 @@ class STQAViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     private func estimateFrameForText(_ text: String) -> CGSize {
         let cellsize = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
-        cellsize.preferredMaxLayoutWidth = 200
         cellsize.text = text
+        cellsize.preferredMaxLayoutWidth = 200
         cellsize.numberOfLines = 0
         cellsize.lineBreakMode = .byWordWrapping
         cellsize.font = UIFont.systemFont(ofSize: 14)
         cellsize.sizeToFit()
         
         return cellsize.frame.size
-        
-        
-        //let size = CGSize(width: 200, height: 1000)
-        //let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
-       
-        //return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)], context: nil)
-        
     }
     
     func editButtonAction(sender : UIButton){

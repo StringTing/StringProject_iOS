@@ -6,7 +6,7 @@
 //  Copyright © 2017년 EuiSuk_Lee. All rights reserved.
 //
 
-import UIKit
+import UIKi
 
 class MYEditTableViewCell: UITableViewCell {
     

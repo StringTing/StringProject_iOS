@@ -17,7 +17,8 @@ class OtherTableViewCell: UITableViewCell {
         tv.translatesAutoresizingMaskIntoConstraints = false
         tv.backgroundColor = .clear
         tv.textColor = .black
-        tv.lineBreakMode = .byWordWrapping
+        tv.lineBreakMode = .byCharWrapping
+        tv.preferredMaxLayoutWidth = 200
         tv.numberOfLines = 0
         return tv
     }()
