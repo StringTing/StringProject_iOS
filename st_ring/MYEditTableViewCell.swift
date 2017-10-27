@@ -6,12 +6,13 @@
 //  Copyright © 2017년 EuiSuk_Lee. All rights reserved.
 //
 
-import UIKi
+import UIKit
+import KRWordWrapLabel
 
 class MYEditTableViewCell: UITableViewCell {
     
-    let textView : UILabel = {
-        let tv = UILabel()
+    let textView : KRWordWrapLabel = {
+        let tv = KRWordWrapLabel()
         tv.text = "TEST TEXT"
         tv.font = UIFont.systemFont(ofSize: 14)
         tv.translatesAutoresizingMaskIntoConstraints = false

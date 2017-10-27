@@ -7,17 +7,18 @@
 //
 
 import UIKit
+import KRWordWrapLabel
 
 class OtherTableViewCell: UITableViewCell {
     
-    let textView : UILabel = {
-        let tv = UILabel()
+    let textView : KRWordWrapLabel = {
+        let tv = KRWordWrapLabel()
         tv.text = "TEST TEXT"
         tv.font = UIFont.systemFont(ofSize: 14)
         tv.translatesAutoresizingMaskIntoConstraints = false
         tv.backgroundColor = .clear
         tv.textColor = .black
-        tv.lineBreakMode = .byCharWrapping
+        tv.lineBreakMode = .byWordWrapping
         tv.preferredMaxLayoutWidth = 200
         tv.numberOfLines = 0
         return tv

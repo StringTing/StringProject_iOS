@@ -9,6 +9,7 @@
 import UIKit
 import JSONJoy
 import Alamofire
+import KRWordWrapLabel
 
 
 
@@ -222,9 +223,9 @@ class STQAViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     private func estimateFrameForText(_ text: String) -> CGSize {
-        let cellsize = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
+        let cellsize = KRWordWrapLabel(frame: CGRect(x: 0, y: 0, width: 250, height: 50))
         cellsize.text = text
-        cellsize.preferredMaxLayoutWidth = 200
+        cellsize.preferredMaxLayoutWidth = 250
         cellsize.numberOfLines = 0
         cellsize.lineBreakMode = .byWordWrapping
         cellsize.font = UIFont.systemFont(ofSize: 14)
