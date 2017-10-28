@@ -12,6 +12,9 @@ class STBasicInfoViewController: UIViewController, UIPickerViewDelegate, UIPicke
     @IBOutlet weak var ScrollView: UIScrollView!
     @IBOutlet weak var ContentsView: UIView!
     @IBOutlet weak var certificationBtn: UIButton!
+    @IBOutlet weak var certificationView: UIView!
+    @IBOutlet weak var uploadView: UIView!
+    @IBOutlet weak var infoView: UIView!
     @IBOutlet weak var uploadCollection: UICollectionView!
     @IBOutlet weak var progressImg: UIImageView!
     @IBOutlet weak var gunBariLabel: UILabel!
@@ -77,7 +80,15 @@ class STBasicInfoViewController: UIViewController, UIPickerViewDelegate, UIPicke
         tap.delegate = self as? UIGestureRecognizerDelegate
         self.view.addGestureRecognizer(tap)
         nextBtn.isEnabled = true
-        nextBtn.backgroundColor = UIColor.lightGray
+        nextBtn.backgroundColor = UIColor.white
+        
+        self.ContentsView.backgroundColor = UIColor.lightGray
+        self.certificationView.layer.cornerRadius = 10
+        self.uploadView.layer.cornerRadius = 10
+        self.infoView.layer.cornerRadius = 10
+        self.nextBtn.layer.cornerRadius = 10
+        
+        
         
         schoolPicker.delegate = self
         locationPicker.delegate = self

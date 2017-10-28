@@ -33,10 +33,12 @@ class MYEditTableViewCell: UITableViewCell {
     }()
     let bubbleView : UIView = {
         let bv = UIView()
-        bv.backgroundColor = UIColor.blue
+        bv.backgroundColor = UIColor.white
         bv.translatesAutoresizingMaskIntoConstraints = false
         bv.layer.cornerRadius = 10
         bv.layer.masksToBounds = true
+        bv.layer.borderColor = UIColor.blue.cgColor
+        bv.layer.borderWidth = 1
         return bv
     }()
     var bubbleWidthAnchor: NSLayoutConstraint?

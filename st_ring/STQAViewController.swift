@@ -126,7 +126,7 @@ class STQAViewController: UIViewController, UITableViewDataSource, UITableViewDe
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if QAMessage[indexPath.row].typeId == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MYEditTableViewCell", for: indexPath) as! MYEditTableViewCell
-            let textWidth : CGFloat = estimateFrameForText(QAMessage[indexPath.row].text).width + 30
+            let textWidth : CGFloat = estimateFrameForText(QAMessage[indexPath.row].text).width + 20
             
             cell.textView.text! = QAMessage[indexPath.row].text
             cell.editButton.tag = indexPath.row
@@ -140,7 +140,7 @@ class STQAViewController: UIViewController, UITableViewDataSource, UITableViewDe
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "OtherTableViewCell", for: indexPath) as! OtherTableViewCell
-            let textWidth : CGFloat = estimateFrameForText(QAMessage[indexPath.row].text).width + 20
+            let textWidth : CGFloat = estimateFrameForText(QAMessage[indexPath.row].text).width
             cell.textView.text! = QAMessage[indexPath.row].text
             cell.bubbleWidthAnchor?.constant = textWidth
             return cell
@@ -148,12 +148,12 @@ class STQAViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        var height : CGFloat = 80
+        var height = CGFloat()
         
         if QAMessage[indexPath.row].typeId == 1{
             height = estimateFrameForText(QAMessage[indexPath.row].text).height + 50
         } else {
-            height = estimateFrameForText(QAMessage[indexPath.row].text).height + 30
+            height = estimateFrameForText(QAMessage[indexPath.row].text).height + 25
         }
         
         return height
@@ -223,14 +223,18 @@ class STQAViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     private func estimateFrameForText(_ text: String) -> CGSize {
-        let cellsize = KRWordWrapLabel(frame: CGRect(x: 0, y: 0, width: 250, height: 50))
+//        let size = CGSize(width: 200, height: 1000)
+//        let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
+//        return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)], context: nil)
+
+        let cellsize = KRWordWrapLabel()
+        cellsize.frame.size = CGSize(width: 230, height: 20)
         cellsize.text = text
-        cellsize.preferredMaxLayoutWidth = 250
         cellsize.numberOfLines = 0
         cellsize.lineBreakMode = .byWordWrapping
         cellsize.font = UIFont.systemFont(ofSize: 14)
         cellsize.sizeToFit()
-        
+
         return cellsize.frame.size
     }
     
@@ -245,10 +249,8 @@ class STQAViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func scrollToBottom(){
-        //DispatchQueue.main.async {
-            let indexPath = IndexPath(row: self.QAMessage.count-1, section: 0)
-            self.chatView.scrollToRow(at: indexPath, at: .bottom, animated: true)
-        //}
+        let indexPath = IndexPath(row: self.QAMessage.count-1, section: 0)
+        self.chatView.scrollToRow(at: indexPath, at: .bottom, animated: true)
     }
     
     func keyboardWillShow(notification: NSNotification) {

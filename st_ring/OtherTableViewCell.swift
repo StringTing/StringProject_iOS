@@ -25,7 +25,9 @@ class OtherTableViewCell: UITableViewCell {
     }()
     let bubbleView : UIView = {
         let bv = UIView()
-        bv.backgroundColor = UIColor.lightGray
+        bv.backgroundColor = .white
+        bv.layer.borderColor = UIColor.lightGray.cgColor
+        bv.layer.borderWidth = 1
         bv.translatesAutoresizingMaskIntoConstraints = false
         bv.layer.cornerRadius = 10
         bv.layer.masksToBounds = true
@@ -33,7 +35,6 @@ class OtherTableViewCell: UITableViewCell {
     }()
     
     var bubbleWidthAnchor: NSLayoutConstraint?
-    var bubbleHeightAnchor: NSLayoutConstraint?
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -51,10 +52,10 @@ class OtherTableViewCell: UITableViewCell {
         bubbleWidthAnchor?.isActive = true
         
         //textview constraint set
-        textView.leadingAnchor.constraint(equalTo: bubbleView.leadingAnchor, constant: 5).isActive = true
-        textView.topAnchor.constraint(equalTo: bubbleView.topAnchor, constant: 5).isActive = true
-        textView.bottomAnchor.constraint(equalTo: bubbleView.bottomAnchor, constant: -5).isActive = true
-        textView.trailingAnchor.constraint(equalTo: bubbleView.trailingAnchor, constant: -5).isActive = true
+        textView.leadingAnchor.constraint(equalTo: bubbleView.leadingAnchor, constant: 10).isActive = true
+        textView.topAnchor.constraint(equalTo: bubbleView.topAnchor, constant: 10).isActive = true
+        textView.bottomAnchor.constraint(equalTo: bubbleView.bottomAnchor, constant: -10).isActive = true
+        textView.trailingAnchor.constraint(equalTo: bubbleView.trailingAnchor, constant: -10).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {
