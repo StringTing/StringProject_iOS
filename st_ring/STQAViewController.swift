@@ -18,19 +18,28 @@ struct message {
     var text : String
 }
 
-struct Answer : JSONJoy {
-    let Answer1 : String
-    let Answer2 : String
-    let Answer3 : String
-    let Answer4 : String
-    
-    init(_ decoder : JSONLoader) throws {
-        Answer1 = try decoder["Answer1"].get()
-        Answer2 = try decoder["Answer2"].get()
-        Answer3 = try decoder["Answer3"].get()
-        Answer4 = try decoder["Answer4"].get()
-    }
-}
+//struct basicInfo : JSONJoy {
+//    var email : String?
+//    var password : String?
+//    var login_format : String?
+//    var birthday = 1997-04-22
+//    var military_service_status : String?
+//    var education : String?
+//    var department : String?
+//    var location : String?
+//    var height : String?
+//    var body_form : String?
+//    var smoke : String?
+//    var drink : String?
+//    var religion : String?
+//    var blood_type : String?
+//    var authenticated : String?
+//    var id_image : String?
+//
+//    init(_ decoder: JSONLoader) throws {
+//        <#code#>
+//    }
+//}
 
 class STQAViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextViewDelegate {
     @IBOutlet weak var chatView: UITableView!

@@ -19,25 +19,37 @@ class STBasicInfoViewController: UIViewController, UIPickerViewDelegate, UIPicke
     @IBOutlet weak var progressImg: UIImageView!
     @IBOutlet weak var gunBariLabel: UILabel!
     @IBOutlet weak var gunBarI: UISegmentedControl!
+    @IBOutlet weak var gunBarICheck: UIView!
     @IBOutlet weak var schoolTextfield: selectTextField!
     @IBOutlet weak var schoolLabel: UILabel!
+    @IBOutlet weak var schoolCheck: UIView!
     @IBOutlet weak var specialtyLabel: UILabel!
     @IBOutlet weak var specialtyTextfield: UITextField!
+    @IBOutlet weak var specialtyCheck: UIView!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var locationTextfield: selectTextField!
+    @IBOutlet weak var locationCheck: UIView!
     @IBOutlet weak var heightLabel: UILabel!
     @IBOutlet weak var heightTextfield: selectTextField!
+    @IBOutlet weak var heightCheck: UIView!
+    @IBOutlet weak var bodyCheck: UIView!
     @IBOutlet weak var bodyLabel: UILabel!
     @IBOutlet weak var bodyTextfield: selectTextField!
     @IBOutlet weak var smokeLabel: UILabel!
     @IBOutlet weak var smokeSegmented: UISegmentedControl!
+    @IBOutlet weak var smokeCheck: UIView!
     @IBOutlet weak var drinkLabel: UILabel!
     @IBOutlet weak var drinkTextfield: selectTextField!
+    @IBOutlet weak var drinkCheck: UIView!
     @IBOutlet weak var religionTextfield: selectTextField!
+    @IBOutlet weak var religionCheck: UIView!
     @IBOutlet weak var bloodLabel: UILabel!
     @IBOutlet weak var bloodTextfield: selectTextField!
+    @IBOutlet weak var bloodCheck: UIView!
     @IBOutlet weak var nextBtn: UIButton!
+    @IBOutlet weak var BasicInfoLabel: UILabel!
     
+    let gunbariArray = ["군필", "미필", "해당없음"]
     let schoolArray = ["인서울상위", "인서울4년제", "수도권4년제", "4년제", "전문대", "해외대학", "고졸"]
     let locationArray = ["서울", "부산", "인천", "광주", "울산", "대전", "대구", "경기", "강원", "경남", "경북", "충북", "충남", "전북", "전남"]
     let heightArray:[Int] = Array(140...200)
@@ -70,7 +82,7 @@ class STBasicInfoViewController: UIViewController, UIPickerViewDelegate, UIPicke
     var WbodyPicker = UIPickerView()
     var currentIndexPathrow : Int!
     var nextBtnYLocation:CGPoint!
-    var sex = false
+    var sex = true
     
     
     override func viewDidLoad() {
@@ -87,7 +99,16 @@ class STBasicInfoViewController: UIViewController, UIPickerViewDelegate, UIPicke
         self.uploadView.layer.cornerRadius = 10
         self.infoView.layer.cornerRadius = 10
         self.nextBtn.layer.cornerRadius = 10
-        
+        self.gunBarICheck.layer.cornerRadius = 5
+        self.schoolCheck.layer.cornerRadius = 5
+        self.specialtyCheck.layer.cornerRadius = 5
+        self.locationCheck.layer.cornerRadius = 5
+        self.heightCheck.layer.cornerRadius = 5
+        self.bloodCheck.layer.cornerRadius = 5
+        self.bodyCheck.layer.cornerRadius = 5
+        self.smokeCheck.layer.cornerRadius = 5
+        self.drinkCheck.layer.cornerRadius = 5
+        self.religionCheck.layer.cornerRadius = 5
         
         
         schoolPicker.delegate = self
@@ -115,8 +136,9 @@ class STBasicInfoViewController: UIViewController, UIPickerViewDelegate, UIPicke
         } else {
             gunBarI.removeFromSuperview()
             gunBariLabel.removeFromSuperview()
-            let womenConst1 = NSLayoutConstraint(item: schoolLabel, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: progressImg, attribute:NSLayoutAttribute.top, multiplier: 1, constant: CGFloat(50))
-            self.view.addConstraint(womenConst1)
+            gunBarICheck.removeFromSuperview()
+            let womenConst1 = NSLayoutConstraint(item: schoolLabel, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: BasicInfoLabel, attribute:NSLayoutAttribute.bottom, multiplier: 1, constant: CGFloat(25))
+            self.infoView.addConstraint(womenConst1)
             bodyTextfield.inputView = WbodyPicker
         }
         
@@ -236,8 +258,6 @@ class STBasicInfoViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-        var counter : Int = 0
-        
         if(picker == certificationPicker){
             certificationBtn.setBackgroundImage(chosenImage, for: .normal)
         }else if(picker == cellPicker){
@@ -248,16 +268,6 @@ class STBasicInfoViewController: UIViewController, UIPickerViewDelegate, UIPicke
         }
         dismiss(animated: true, completion: nil)
         uploadCollection.reloadData()
-        
-        for a in profilImg {
-            if (a != UIImage(named : "defualt")){
-                counter += 1
-            }
-        }
-        if counter >= 3 {
-            self.nextBtn.isEnabled = true
-            self.nextBtn.backgroundColor = UIColor.black
-        }
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -265,36 +275,30 @@ class STBasicInfoViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
     
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
-        let textFieldArray = [schoolTextfield, specialtyTextfield, locationTextfield, heightTextfield, bodyTextfield, drinkTextfield, religionTextfield, bloodTextfield]
-        var checker : Int = 0
-        
-        for i in textFieldArray {
-            if(i?.text == ""){
-                checker += 1
+        if textField.text != "" {
+            if textField == schoolTextfield {
+                schoolCheck.backgroundColor = UIColor.green
+            } else if textField == specialtyTextfield {
+                specialtyCheck.backgroundColor = UIColor.green
+            } else if textField == locationTextfield {
+                locationCheck.backgroundColor = UIColor.green
+            } else if textField == heightTextfield {
+                heightCheck.backgroundColor = UIColor.green
+            } else if textField == bloodTextfield {
+                bloodCheck.backgroundColor = UIColor.green
+            } else if textField == bodyTextfield {
+                bodyCheck.backgroundColor = UIColor.green
+            } else if textField == drinkTextfield {
+                drinkCheck.backgroundColor = UIColor.green
+            } else if textField == religionTextfield {
+                religionCheck.backgroundColor = UIColor.green
             }
-        }
-        
-        if(self.sex == false){
-            if(gunBarI.isSelected == true) {
-                checker += 1
-            }
-        }
-        
-        if (smokeSegmented.isSelected == true) {
-            checker += 1
-        }
-        
-        if (checker == 0) {
-            self.nextBtn.isEnabled = true
-            self.nextBtn.backgroundColor = UIColor.black
         }
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        if(textField != schoolTextfield && textField != specialtyTextfield) {
-            let scrollPoint : CGPoint = CGPoint(x : 0, y: textField.frame.origin.y - 200)
-            self.ScrollView.setContentOffset(scrollPoint, animated: true)
-        }
+        let scrollPoint : CGPoint = CGPoint(x : 0, y: textField.frame.origin.y + 200)
+        self.ScrollView.setContentOffset(scrollPoint, animated: true)
         
         if (textField == schoolTextfield){
             schoolTextfield.text = schoolArray[0]
@@ -318,27 +322,11 @@ class STBasicInfoViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
     
     @IBAction func gunBaRi(_ sender: Any) {
-        switch  gunBarI.selectedSegmentIndex {
-        case 0:
-            print("군필")
-        case 1:
-            print("미필")
-        case 2:
-            print("해당없음")
-        default:
-            print("error")
-        }
+        gunBarICheck.backgroundColor = UIColor.green
     }
     
     @IBAction func smoke(_ sender: Any) {
-        switch smokeSegmented.selectedSegmentIndex {
-        case 0:
-            print("비흡연")
-        case 1:
-            print("흡연")
-        default:
-            print("error")
-        }
+        smokeCheck.backgroundColor = UIColor.green
     }
     
     func tapView() {

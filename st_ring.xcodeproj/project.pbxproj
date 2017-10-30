@@ -237,6 +237,7 @@
 		E1BD4EBD1F54169B00760128 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				E1DDCC981FA5F0D5004D6167 /* TappedView */,
 				E1D7AACB1F69551100346E2C /* Common */,
 				E1BD4EBF1F5416E700760128 /* Account */,
 			);
@@ -278,6 +279,13 @@
 				E1B3C5D21F77E8080029B88D /* selectTextField.swift */,
 			);
 			name = Common;
+			sourceTree = "<group>";
+		};
+		E1DDCC981FA5F0D5004D6167 /* TappedView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TappedView;
 			sourceTree = "<group>";
 		};
 		FBFF54FA4B13AEB8EDACDCFA /* Frameworks */ = {

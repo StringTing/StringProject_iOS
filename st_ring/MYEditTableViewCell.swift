@@ -17,7 +17,7 @@ class MYEditTableViewCell: UITableViewCell {
         tv.font = UIFont.systemFont(ofSize: 14)
         tv.translatesAutoresizingMaskIntoConstraints = false
         tv.backgroundColor = .clear
-        tv.textColor = .white
+        tv.textColor = .black
         tv.lineBreakMode = .byWordWrapping
         tv.numberOfLines = 0
         

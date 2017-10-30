@@ -10,15 +10,11 @@ import UIKit
 import FacebookLogin
 import FacebookCore
 import TTTAttributedLabel
-import SafariServices
 
-
-
-class STStartViewController: UIViewController,TTTAttributedLabelDelegate, SFSafariViewControllerDelegate {
+class STStartViewController: UIViewController,TTTAttributedLabelDelegate {
     @IBOutlet weak var StartLogoImg: UIImageView!
     @IBOutlet weak var emailJoin: UIButton!
     @IBOutlet weak var agreeLabel: TTTAttributedLabel!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +22,6 @@ class STStartViewController: UIViewController,TTTAttributedLabelDelegate, SFSafa
         let range1 = NSMakeRange(21, 5)
         let range2 = NSMakeRange(29, 8)
         let agreeLabelText = "가입하기 또는 로그인 버튼을 누르면 \n이용 약관 및 개인정보취급방침에 동의하신 것이 됩니다."
-        let agreeActionTap = UIGestureRecognizer(target: self, action: #selector(self.webViewAction))
-        //agreeActionTap.delegate = self
         
         agreeLabel.text = agreeLabelText
         agreeLabel.textAlignment = .center
@@ -49,14 +43,14 @@ class STStartViewController: UIViewController,TTTAttributedLabelDelegate, SFSafa
     @IBAction func FBJoing(_ sender: Any) {
         let loginManager = LoginManager()
         
-        loginManager.logIn([ .publicProfile ], viewController: self) { loginResult in
+        loginManager.logIn([ .publicProfile, .email], viewController: self) { loginResult in
             switch loginResult {
             case .failed(let error):
                 print(error)
             case .cancelled:
                 print("User cancelled login.")
             case .success( _, _, _):
-                print("Logged in!")
+                self.getFBInfo()
             }
         }
     }
@@ -74,7 +68,18 @@ class STStartViewController: UIViewController,TTTAttributedLabelDelegate, SFSafa
                     
                     if s.isOpen(){
                         print("Success")
-                    }else {
+                        KOSessionTask.meTask(completionHandler: {(profile, error) -> Void in
+                            if profile != nil {
+                                DispatchQueue.main.async(execute: {()-> Void in
+                                    let kakao : KOUser = profile as! KOUser
+                                    
+                                    if let email = kakao.email{
+                                        print(email)
+                                    }
+                                })
+                            }
+                        })
+                    } else {
                         print("Faild")
                     }
                 }
@@ -95,16 +100,29 @@ class STStartViewController: UIViewController,TTTAttributedLabelDelegate, SFSafa
             UIApplication.shared.openURL(url)
         }
     }
+    
     @IBAction func EmailJoin(_ sender: Any) {
         guard let EmailJoin = storyboard?.instantiateViewController(withIdentifier: "STJoinNavigationController") else {
             return
         }
-        
         self.present(EmailJoin, animated: true, completion: nil)
     }
     
-    func webViewAction() {
-        
+    func getFBInfo() {
+        let params = ["fields" : "email, name"]
+        let graphRequest = GraphRequest(graphPath: "me", parameters: params)
+        graphRequest.start {
+            (urlResponse, requestResult) in
+            
+            switch requestResult {
+            case .failed(let error):
+                print("error in graph request:", error)
+                break
+            case .success(let graphResponse):
+                if let responseDictionary = graphResponse.dictionaryValue {
+                    print(responseDictionary)
+                }
+            }
+        }
     }
-    
 }
