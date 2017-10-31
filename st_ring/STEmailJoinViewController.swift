@@ -19,13 +19,11 @@ class STEmailJoinViewController: UIViewController, UITextFieldDelegate{
     var emailCK : Bool!
     var passwordCK : Bool!
     var PWequalCK : Bool!
-    
     var joinBtnYLocation : CGFloat!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         NotificationCenter.default.addObserver(self, selector: #selector(STEmailJoinViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(STEmailJoinViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
@@ -49,6 +47,11 @@ class STEmailJoinViewController: UIViewController, UITextFieldDelegate{
     
     override func viewDidAppear(_ animated: Bool) {
         self.EmailText.becomeFirstResponder()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let SMSViewController = segue.destination as! STSMSConfrimViewController
+        SMSViewController.email = self.EmailText.text!
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

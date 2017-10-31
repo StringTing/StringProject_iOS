@@ -75,6 +75,10 @@ class STStartViewController: UIViewController,TTTAttributedLabelDelegate {
                                     
                                     if let email = kakao.email{
                                         print(email)
+                                        _ = UINavigationController(rootViewController: self)
+                                        let STSMSConfirm = self.storyboard?.instantiateViewController(withIdentifier: "STSMSConfrimViewController") as? STSMSConfrimViewController
+                                        self.navigationController?.pushViewController(STSMSConfirm!, animated: true)
+//                                        self.navigationController?.pushViewController(STSMSConfirm!, animated: true)
                                     }
                                 })
                             }

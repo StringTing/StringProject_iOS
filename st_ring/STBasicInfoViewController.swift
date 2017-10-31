@@ -87,6 +87,9 @@ class STBasicInfoViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.backAction))
+        self.navigationItem.leftBarButtonItem = newBackButton
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(STBasicInfoViewController.tapView))
         tap.delegate = self as? UIGestureRecognizerDelegate
@@ -162,6 +165,30 @@ class STBasicInfoViewController: UIViewController, UIPickerViewDelegate, UIPicke
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let QAView = segue.destination as! STQAViewController
+        var userBasicInfo = QAView.userBasicInfo
+        userBasicInfo!.email = "eui970422@icloud.com"
+        userBasicInfo!.password = "!Jp224079"
+        userBasicInfo!.login_format = "F"
+        userBasicInfo!.birthday = "1992-04-22"
+        userBasicInfo!.military_service_status = self.gunBarI.titleForSegment(at: self.gunBarI.selectedSegmentIndex)
+        userBasicInfo!.education = self.schoolTextfield?.text
+        userBasicInfo!.department = self.specialtyTextfield?.text
+        userBasicInfo!.location = self.locationTextfield?.text
+        userBasicInfo!.height = self.heightTextfield?.text
+        userBasicInfo!.body_form = self.bodyTextfield?.text
+        if self.smokeSegmented.titleForSegment(at: self.smokeSegmented.selectedSegmentIndex) == "흡연자" {
+            userBasicInfo!.smoke = true
+        } else {
+            userBasicInfo!.smoke = false
+        }
+        userBasicInfo!.drink = self.drinkTextfield?.text
+        userBasicInfo!.religion = self.religionTextfield?.text
+        userBasicInfo!.authenticated = false
+        userBasicInfo!.id_image = "test_code"
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -351,5 +378,16 @@ class STBasicInfoViewController: UIViewController, UIPickerViewDelegate, UIPicke
         cellPicker.sourceType = .photoLibrary
         self.currentIndexPathrow = sender.tag
         self.present(cellPicker, animated: true, completion: nil)
+    }
+    
+    func backAction() {
+        let alert = UIAlertController(title: nil, message: "입력하신내용은 저장되지 않습니다. 되돌아가시겠습니까?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: {action in
+            _ = self.navigationController?.popViewController(animated: true)
+        }))
+        alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
     }
 }

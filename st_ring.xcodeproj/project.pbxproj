@@ -15,6 +15,8 @@
 		E103AB8A1F6FF62200E4D496 /* STBasicInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E103AB891F6FF62200E4D496 /* STBasicInfoViewController.swift */; };
 		E11841491F6E51FE00D3A50A /* STLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11841481F6E51FE00D3A50A /* STLoginViewController.swift */; };
 		E118414B1F6E66A800D3A50A /* STEmailLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E118414A1F6E66A800D3A50A /* STEmailLoginViewController.swift */; };
+		E14373D71FA8CDDC002D7100 /* STMainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E14373D61FA8CDDC002D7100 /* STMainStoryboard.storyboard */; };
+		E14373D91FA8CF52002D7100 /* STTodayPickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14373D81FA8CF52002D7100 /* STTodayPickViewController.swift */; };
 		E16CFC171F9498F300CB5EF3 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E16CFC151F9498F300CB5EF3 /* ChatViewController.xib */; };
 		E16CFC211F9634F500CB5EF3 /* MYEditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16CFC201F9634F500CB5EF3 /* MYEditTableViewCell.swift */; };
 		E16CFC261F9638F200CB5EF3 /* NanumSquareRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E16CFC251F9638E000CB5EF3 /* NanumSquareRegular.ttf */; };
@@ -67,6 +69,8 @@
 		E11841481F6E51FE00D3A50A /* STLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STLoginViewController.swift; sourceTree = "<group>"; };
 		E118414A1F6E66A800D3A50A /* STEmailLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STEmailLoginViewController.swift; sourceTree = "<group>"; };
 		E11FC8DB1F56A38E00961E39 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		E14373D61FA8CDDC002D7100 /* STMainStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = STMainStoryboard.storyboard; sourceTree = "<group>"; };
+		E14373D81FA8CF52002D7100 /* STTodayPickViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTodayPickViewController.swift; sourceTree = "<group>"; };
 		E16CFC151F9498F300CB5EF3 /* ChatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
 		E16CFC201F9634F500CB5EF3 /* MYEditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYEditTableViewCell.swift; sourceTree = "<group>"; };
 		E16CFC231F9638E000CB5EF3 /* NanumSquareBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareBold.ttf; sourceTree = "<group>"; };
@@ -284,6 +288,8 @@
 		E1DDCC981FA5F0D5004D6167 /* TappedView */ = {
 			isa = PBXGroup;
 			children = (
+				E14373D61FA8CDDC002D7100 /* STMainStoryboard.storyboard */,
+				E14373D81FA8CF52002D7100 /* STTodayPickViewController.swift */,
 			);
 			path = TappedView;
 			sourceTree = "<group>";
@@ -426,6 +432,7 @@
 				E1BD4EC11F54176300760128 /* STAccountStoryboard.storyboard in Resources */,
 				E16CFC171F9498F300CB5EF3 /* ChatViewController.xib in Resources */,
 				E1BD4E921F54163D00760128 /* Main.storyboard in Resources */,
+				E14373D71FA8CDDC002D7100 /* STMainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,8 +565,8 @@
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
-				"${BUILT_PRODUCTS_DIR}/JSONJoy-Swift/JSONJoy.framework",
 				"${BUILT_PRODUCTS_DIR}/KRWordWrapLabel/KRWordWrapLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/TTTAttributedLabel/TTTAttributedLabel.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -570,8 +577,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONJoy.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRWordWrapLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTTAttributedLabel.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -624,6 +631,7 @@
 				E1BD4EC41F5417B100760128 /* STStartViewController.swift in Sources */,
 				E103AB841F6FE6CF00E4D496 /* STSMSConfrimViewController.swift in Sources */,
 				E1A9331C1F7B861200879697 /* STQAViewController.swift in Sources */,
+				E14373D91FA8CF52002D7100 /* STTodayPickViewController.swift in Sources */,
 				E1A57C5C1F975CFD00781A64 /* OtherTableViewCell.swift in Sources */,
 				E11841491F6E51FE00D3A50A /* STLoginViewController.swift in Sources */,
 				E1C9418D1F78FA4F000B0B02 /* imgUploadCollectionViewCell.swift in Sources */,

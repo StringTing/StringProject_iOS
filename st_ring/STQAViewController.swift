@@ -7,9 +7,9 @@
 //
 
 import UIKit
-import JSONJoy
 import Alamofire
 import KRWordWrapLabel
+import SwiftyJSON
 
 
 
@@ -18,28 +18,47 @@ struct message {
     var text : String
 }
 
-//struct basicInfo : JSONJoy {
-//    var email : String?
-//    var password : String?
-//    var login_format : String?
-//    var birthday = 1997-04-22
-//    var military_service_status : String?
-//    var education : String?
-//    var department : String?
-//    var location : String?
-//    var height : String?
-//    var body_form : String?
-//    var smoke : String?
-//    var drink : String?
-//    var religion : String?
-//    var blood_type : String?
-//    var authenticated : String?
-//    var id_image : String?
-//
-//    init(_ decoder: JSONLoader) throws {
-//        <#code#>
-//    }
-//}
+struct basicInfo {
+    var email : String?
+    var password : String?
+    var login_format : String?
+    var birthday : String?
+    var military_service_status : String?
+    var education : String?
+    var department : String?
+    var location : String?
+    var height : String?
+    var body_form : String?
+    var smoke : Bool?
+    var drink : String?
+    var religion : String?
+    var blood_type : String?
+    var authenticated : Bool?
+    var id_image : String?
+    
+    func toDictionary() -> [String : Any]? {
+        let prams = [
+            "email" : self.email as Any,
+            "password" : self.password as Any,
+            "login_format" : self.login_format as Any,
+            "birthday" : self.birthday as Any,
+            "military_service_status" : self.military_service_status as Any,
+            "education" : self.education as Any,
+            "department" : self.department as Any,
+            "location" : self.location as Any,
+            "height" : self.height as Any,
+            "body_form" : self.body_form as Any,
+            "smoke" : self.smoke as Any,
+            "drink" : self.drink as Any,
+            "religion" : self.religion as Any,
+            "blood_type" : self.blood_type as Any,
+            "authenticated" : self.authenticated as Any,
+            "id_image" : self.id_image as Any
+            ] as [String : Any]
+        
+        return prams
+    }
+}
 
 class STQAViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextViewDelegate {
     @IBOutlet weak var chatView: UITableView!
@@ -73,10 +92,16 @@ class STQAViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var QuestionMessage = [message]()
     var currentEditMessage : IndexPath?
     var inputBarYLocation : CGFloat?
+    var userBasicInfo : basicInfo?
+    
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.backAction))
+        self.navigationItem.leftBarButtonItem = newBackButton
+        
         chatView.delegate = self
         chatView.dataSource = self
         inputTextView.delegate = self
@@ -216,8 +241,7 @@ class STQAViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     @IBAction func doneAction(_ sender: Any) {
-        let parameters = ["test" : "test"]
-        Alamofire.request(self.server_domain, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: nil).responseJSON{response in
+        Alamofire.request(self.server_domain, method: HTTPMethod.post, parameters: self.userBasicInfo?.toDictionary(), encoding: JSONEncoding.default, headers: nil).responseJSON{response in
             switch response.result {
             case .success:
                 print("Validation Successful")
@@ -232,10 +256,6 @@ class STQAViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     private func estimateFrameForText(_ text: String) -> CGSize {
-//        let size = CGSize(width: 200, height: 1000)
-//        let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
-//        return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14)], context: nil)
-
         let cellsize = KRWordWrapLabel()
         cellsize.frame.size = CGSize(width: 230, height: 20)
         cellsize.text = text
@@ -291,5 +311,16 @@ class STQAViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func hideKeyboard() {
         self.view.endEditing(true)
+    }
+    
+    func backAction() {
+        let alert = UIAlertController(title: nil, message: "입력하신내용은 저장되지 않습니다. 되돌아가시겠습니까?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: {action in
+            _ = self.navigationController?.popViewController(animated: true)
+        }))
+        alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
     }
 }

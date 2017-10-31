@@ -4,7 +4,7 @@
 pod 'FacebookCore'
 pod 'FacebookLogin'
 pod 'TTTAttributedLabel'
-pod 'JSONJoy-Swift'
+pod 'SwiftyJSON'
 pod 'Alamofire'
 pod 'KRWordWrapLabel'
 

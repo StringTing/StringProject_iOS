@@ -1,19 +1,17 @@
 //
-//  STSMSConfrimViewController.swift
+//  STTodayPickViewController.swift
 //  st_ring
 //
-//  Created by euisuk_lee on 2017. 9. 18..
+//  Created by EuiSuk_Lee on 2017. 11. 1..
 //  Copyright © 2017년 EuiSuk_Lee. All rights reserved.
 //
 
 import UIKit
 
-class STSMSConfrimViewController: UIViewController{
-    var email = String()
+class STTodayPickViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(email)
 
         // Do any additional setup after loading the view.
     }
@@ -21,14 +19,6 @@ class STSMSConfrimViewController: UIViewController{
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func NextBtn(_ sender: Any) {
-        guard let next = self.storyboard?.instantiateViewController(withIdentifier: "STBasicInfoViewController") else {
-            return
-        }
-        self.navigationController?.pushViewController(next, animated: true)
-        
     }
     
 
