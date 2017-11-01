@@ -17,6 +17,10 @@
 		E118414B1F6E66A800D3A50A /* STEmailLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E118414A1F6E66A800D3A50A /* STEmailLoginViewController.swift */; };
 		E14373D71FA8CDDC002D7100 /* STMainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E14373D61FA8CDDC002D7100 /* STMainStoryboard.storyboard */; };
 		E14373D91FA8CF52002D7100 /* STTodayPickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14373D81FA8CF52002D7100 /* STTodayPickViewController.swift */; };
+		E14373DC1FA9FED4002D7100 /* miniProFileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14373DA1FA9FED4002D7100 /* miniProFileCollectionViewCell.swift */; };
+		E14373DD1FA9FED4002D7100 /* miniProFileCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14373DB1FA9FED4002D7100 /* miniProFileCollectionViewCell.xib */; };
+		E14373DF1FA9FF5A002D7100 /* bigProFileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14373DE1FA9FF5A002D7100 /* bigProFileView.swift */; };
+		E14373E11FA9FF93002D7100 /* bigProFileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14373E01FA9FF93002D7100 /* bigProFileView.xib */; };
 		E16CFC171F9498F300CB5EF3 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E16CFC151F9498F300CB5EF3 /* ChatViewController.xib */; };
 		E16CFC211F9634F500CB5EF3 /* MYEditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16CFC201F9634F500CB5EF3 /* MYEditTableViewCell.swift */; };
 		E16CFC261F9638F200CB5EF3 /* NanumSquareRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E16CFC251F9638E000CB5EF3 /* NanumSquareRegular.ttf */; };
@@ -71,6 +75,10 @@
 		E11FC8DB1F56A38E00961E39 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		E14373D61FA8CDDC002D7100 /* STMainStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = STMainStoryboard.storyboard; sourceTree = "<group>"; };
 		E14373D81FA8CF52002D7100 /* STTodayPickViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTodayPickViewController.swift; sourceTree = "<group>"; };
+		E14373DA1FA9FED4002D7100 /* miniProFileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = miniProFileCollectionViewCell.swift; sourceTree = "<group>"; };
+		E14373DB1FA9FED4002D7100 /* miniProFileCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = miniProFileCollectionViewCell.xib; sourceTree = "<group>"; };
+		E14373DE1FA9FF5A002D7100 /* bigProFileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bigProFileView.swift; sourceTree = "<group>"; };
+		E14373E01FA9FF93002D7100 /* bigProFileView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = bigProFileView.xib; sourceTree = "<group>"; };
 		E16CFC151F9498F300CB5EF3 /* ChatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
 		E16CFC201F9634F500CB5EF3 /* MYEditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYEditTableViewCell.swift; sourceTree = "<group>"; };
 		E16CFC231F9638E000CB5EF3 /* NanumSquareBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareBold.ttf; sourceTree = "<group>"; };
@@ -290,6 +298,10 @@
 			children = (
 				E14373D61FA8CDDC002D7100 /* STMainStoryboard.storyboard */,
 				E14373D81FA8CF52002D7100 /* STTodayPickViewController.swift */,
+				E14373DA1FA9FED4002D7100 /* miniProFileCollectionViewCell.swift */,
+				E14373DB1FA9FED4002D7100 /* miniProFileCollectionViewCell.xib */,
+				E14373DE1FA9FF5A002D7100 /* bigProFileView.swift */,
+				E14373E01FA9FF93002D7100 /* bigProFileView.xib */,
 			);
 			path = TappedView;
 			sourceTree = "<group>";
@@ -426,11 +438,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E14373E11FA9FF93002D7100 /* bigProFileView.xib in Resources */,
 				E1BD4E9A1F54163D00760128 /* LaunchScreen.storyboard in Resources */,
 				E1BD4E971F54163D00760128 /* Assets.xcassets in Resources */,
 				E16CFC261F9638F200CB5EF3 /* NanumSquareRegular.ttf in Resources */,
 				E1BD4EC11F54176300760128 /* STAccountStoryboard.storyboard in Resources */,
 				E16CFC171F9498F300CB5EF3 /* ChatViewController.xib in Resources */,
+				E14373DD1FA9FED4002D7100 /* miniProFileCollectionViewCell.xib in Resources */,
 				E1BD4E921F54163D00760128 /* Main.storyboard in Resources */,
 				E14373D71FA8CDDC002D7100 /* STMainStoryboard.storyboard in Resources */,
 			);
@@ -638,7 +652,9 @@
 				E1BD4E8D1F54163D00760128 /* AppDelegate.swift in Sources */,
 				E1B3C5D31F77E8080029B88D /* selectTextField.swift in Sources */,
 				E16CFC211F9634F500CB5EF3 /* MYEditTableViewCell.swift in Sources */,
+				E14373DC1FA9FED4002D7100 /* miniProFileCollectionViewCell.swift in Sources */,
 				E1FE00081F6ABB530099ED41 /* STEmailJoinViewController.swift in Sources */,
+				E14373DF1FA9FF5A002D7100 /* bigProFileView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

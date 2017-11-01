@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,7 +27,7 @@
             </objects>
             <point key="canvasLocation" x="-1537" y="523"/>
         </scene>
-        <!--Item-->
+        <!--기타-->
         <scene sceneID="cfs-4E-Oeg">
             <objects>
                 <viewController id="LJO-i8-FPr" sceneMemberID="viewController">
@@ -36,13 +37,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="7Wd-uL-QX3"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="hlm-hP-lI4"/>
+                    <tabBarItem key="tabBarItem" title="기타" id="hlm-hP-lI4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cdb-ay-kuI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-639" y="646"/>
         </scene>
-        <!--Item 2-->
+        <!--플레이스-->
         <scene sceneID="X8B-EP-7SE">
             <objects>
                 <viewController id="4dn-vz-LzQ" sceneMemberID="viewController">
@@ -52,13 +53,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="gfj-bJ-I7U"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="qTt-eL-lUx"/>
+                    <tabBarItem key="tabBarItem" title="플레이스" id="qTt-eL-lUx"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D1n-0a-V7U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-396" y="-73"/>
         </scene>
-        <!--Item-->
+        <!--나의 픽-->
         <scene sceneID="WRw-iU-Ci6">
             <objects>
                 <viewController id="YfR-RV-PDA" sceneMemberID="viewController">
@@ -68,27 +69,123 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="R0c-AW-FSZ"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="TUB-ER-Utf"/>
+                    <tabBarItem key="tabBarItem" title="나의 픽" id="TUB-ER-Utf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lcm-5I-Eo3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2308" y="304"/>
         </scene>
-        <!--Item 1-->
+        <!--오늘의 픽-->
         <scene sceneID="s9s-jV-AR0">
             <objects>
-                <viewController id="2Ab-ta-4nT" sceneMemberID="viewController">
+                <viewController id="2Ab-ta-4nT" customClass="STTodayPickViewController" customModule="st_ring" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZFd-ri-Qra">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7mm-UX-Dck">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uOr-DB-fbZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pRP-L7-W71">
+                                                <rect key="frame" x="20" y="30" width="162.5" height="271"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="pRP-L7-W71" secondAttribute="height" multiplier="3:5" id="VPZ-cL-T5C"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xbu-x1-WSq">
+                                                <rect key="frame" x="192.5" y="30" width="162.5" height="271"/>
+                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지난 픽들" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="62y-i7-ZRJ">
+                                                <rect key="frame" x="20" y="361" width="64" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="33Y-G6-P1o">
+                                                <rect key="frame" x="20" y="402" width="335" height="96"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XA5-sd-DHU">
+                                                    <size key="itemSize" width="50" height="50"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="HeU-w6-Dq8">
+                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                        </view>
+                                                    </collectionViewCell>
+                                                </cells>
+                                            </collectionView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PMM-Vz-kxt">
+                                                <rect key="frame" x="20" y="508" width="335" height="30"/>
+                                                <state key="normal" title="더보기"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="33Y-G6-P1o" firstAttribute="leading" secondItem="uOr-DB-fbZ" secondAttribute="leading" constant="20" id="AiA-TK-Hb3"/>
+                                            <constraint firstItem="pRP-L7-W71" firstAttribute="top" secondItem="uOr-DB-fbZ" secondAttribute="top" constant="30" id="Gz3-1s-jrg"/>
+                                            <constraint firstAttribute="trailing" secondItem="Xbu-x1-WSq" secondAttribute="trailing" constant="20" id="I02-3o-6AQ"/>
+                                            <constraint firstItem="PMM-Vz-kxt" firstAttribute="top" secondItem="33Y-G6-P1o" secondAttribute="bottom" constant="10" id="M4J-3A-Lno"/>
+                                            <constraint firstAttribute="trailing" secondItem="PMM-Vz-kxt" secondAttribute="trailing" constant="20" id="W42-9U-N89"/>
+                                            <constraint firstAttribute="trailing" secondItem="33Y-G6-P1o" secondAttribute="trailing" constant="20" id="W7j-xb-OsN"/>
+                                            <constraint firstItem="pRP-L7-W71" firstAttribute="leading" secondItem="uOr-DB-fbZ" secondAttribute="leading" constant="20" id="elg-NQ-MnJ"/>
+                                            <constraint firstItem="62y-i7-ZRJ" firstAttribute="leading" secondItem="uOr-DB-fbZ" secondAttribute="leading" constant="20" id="iIw-99-Ybv"/>
+                                            <constraint firstItem="Xbu-x1-WSq" firstAttribute="leading" secondItem="pRP-L7-W71" secondAttribute="trailing" constant="10" id="lcR-mc-I7p"/>
+                                            <constraint firstItem="62y-i7-ZRJ" firstAttribute="top" secondItem="pRP-L7-W71" secondAttribute="bottom" constant="60" id="ly6-5u-LMx"/>
+                                            <constraint firstItem="Xbu-x1-WSq" firstAttribute="top" secondItem="uOr-DB-fbZ" secondAttribute="top" constant="30" id="o5m-7j-28i"/>
+                                            <constraint firstItem="Xbu-x1-WSq" firstAttribute="width" secondItem="pRP-L7-W71" secondAttribute="width" id="qkW-cB-fuF"/>
+                                            <constraint firstItem="Xbu-x1-WSq" firstAttribute="height" secondItem="pRP-L7-W71" secondAttribute="height" id="syC-l6-oaF"/>
+                                            <constraint firstItem="PMM-Vz-kxt" firstAttribute="leading" secondItem="uOr-DB-fbZ" secondAttribute="leading" constant="20" id="wYG-ep-DOS"/>
+                                            <constraint firstItem="33Y-G6-P1o" firstAttribute="top" secondItem="62y-i7-ZRJ" secondAttribute="bottom" constant="20" id="z1a-hC-mHu"/>
+                                            <constraint firstAttribute="bottom" secondItem="PMM-Vz-kxt" secondAttribute="bottom" constant="16" id="zVp-N7-425"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="uOr-DB-fbZ" secondAttribute="bottom" id="0pv-YD-Tlj"/>
+                                    <constraint firstAttribute="trailing" secondItem="uOr-DB-fbZ" secondAttribute="trailing" id="Wzi-OC-iWr"/>
+                                    <constraint firstItem="uOr-DB-fbZ" firstAttribute="top" secondItem="7mm-UX-Dck" secondAttribute="top" id="d1k-Sy-ozE"/>
+                                    <constraint firstItem="uOr-DB-fbZ" firstAttribute="leading" secondItem="7mm-UX-Dck" secondAttribute="leading" id="eTv-6l-ZRe"/>
+                                </constraints>
+                            </scrollView>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="roF-Sz-w8R">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="오늘의픽" id="HXX-r8-cBo"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7mm-UX-Dck" firstAttribute="trailing" secondItem="eYT-kj-aiM" secondAttribute="trailing" id="4z9-Ju-gRU"/>
+                            <constraint firstItem="uOr-DB-fbZ" firstAttribute="top" secondItem="roF-Sz-w8R" secondAttribute="bottom" id="924-jL-8qE"/>
+                            <constraint firstItem="roF-Sz-w8R" firstAttribute="trailing" secondItem="eYT-kj-aiM" secondAttribute="trailing" id="Ene-Ym-iQv"/>
+                            <constraint firstItem="roF-Sz-w8R" firstAttribute="leading" secondItem="eYT-kj-aiM" secondAttribute="leading" id="MNs-jm-riE"/>
+                            <constraint firstItem="7mm-UX-Dck" firstAttribute="leading" secondItem="eYT-kj-aiM" secondAttribute="leading" id="MXw-2u-PPR"/>
+                            <constraint firstItem="eYT-kj-aiM" firstAttribute="bottom" secondItem="uOr-DB-fbZ" secondAttribute="bottom" id="eU0-1H-Hii"/>
+                            <constraint firstItem="roF-Sz-w8R" firstAttribute="top" secondItem="eYT-kj-aiM" secondAttribute="top" id="fpw-rd-x0Z"/>
+                            <constraint firstItem="uOr-DB-fbZ" firstAttribute="width" secondItem="ZFd-ri-Qra" secondAttribute="width" id="ijx-gi-1Bj"/>
+                            <constraint firstItem="7mm-UX-Dck" firstAttribute="bottom" secondItem="eYT-kj-aiM" secondAttribute="bottom" id="qEV-s9-jeF"/>
+                            <constraint firstItem="7mm-UX-Dck" firstAttribute="top" secondItem="roF-Sz-w8R" secondAttribute="bottom" id="uyk-8P-dk7"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="eYT-kj-aiM"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="twA-4r-RI5"/>
+                    <tabBarItem key="tabBarItem" title="오늘의 픽" id="twA-4r-RI5"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ia3-Cn-NJM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-396" y="-739"/>
+            <point key="canvasLocation" x="-396" y="-739.88005997001505"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="P9J-fA-dP5">
